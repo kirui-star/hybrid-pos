@@ -1,0 +1,510 @@
+/* ==========================================
+   RECEIPT MODAL BACKDROP
+========================================== */
+
+.receipt-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  z-index: 2000;
+}
+
+
+/* ==========================================
+   RECEIPT MODAL
+========================================== */
+
+.receipt-modal {
+  width: min(760px, 96vw);
+  max-height: 92vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 24px 60px
+    rgba(15, 23, 42, 0.24);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.receipt-modal-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.receipt-modal-header h2 {
+  margin: 0;
+
+  font-size: 1.15rem;
+  color: #111827;
+}
+
+.receipt-modal-header p {
+  margin: 4px 0 0;
+
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.receipt-modal-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #64748b;
+
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.receipt-modal-close:hover {
+  background: #f1f5f9;
+  color: #111827;
+}
+
+.receipt-modal-close:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   PAPER SETTINGS
+========================================== */
+
+.receipt-paper-settings {
+  flex-shrink: 0;
+
+  display: grid;
+  gap: 10px;
+
+  padding: 14px 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+}
+
+.receipt-paper-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  color: #374151;
+}
+
+
+/* ==========================================
+   PAPER SIZE BUTTONS
+========================================== */
+
+.receipt-paper-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.receipt-paper-options button {
+  min-width: 82px;
+  height: 36px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #374151;
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.receipt-paper-options button:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.receipt-paper-options button.active {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.receipt-paper-options button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   CUSTOM PAPER WIDTH
+========================================== */
+
+.receipt-custom-width {
+  width: min(240px, 100%);
+
+  display: grid;
+  gap: 5px;
+}
+
+.receipt-custom-width > span {
+  font-size: 0.74rem;
+  font-weight: 600;
+
+  color: #475569;
+}
+
+.receipt-custom-width > div {
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.receipt-custom-width > div:focus-within {
+  border-color: #2563eb;
+}
+
+.receipt-custom-width input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 10px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.receipt-custom-width > div > span {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  border-left: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.receipt-custom-width small {
+  color: #94a3b8;
+
+  font-size: 0.68rem;
+}
+
+
+/* ==========================================
+   PREVIEW SHELL
+========================================== */
+
+.receipt-preview-shell {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #e5e7eb;
+}
+
+
+/* ==========================================
+   PREVIEW TOOLBAR
+========================================== */
+
+.receipt-preview-toolbar {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 14px;
+
+  border-bottom: 1px solid #d1d5db;
+
+  background: #f8fafc;
+
+  font-size: 0.74rem;
+  color: #64748b;
+}
+
+.receipt-preview-toolbar strong {
+  color: #374151;
+
+  font-size: 0.74rem;
+}
+
+
+/* ==========================================
+   PREVIEW SCROLL
+========================================== */
+
+.receipt-preview-scroll {
+  flex: 1;
+  min-height: 0;
+
+  overflow: auto;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.receipt-preview-scroll
+.thermal-receipt {
+  flex-shrink: 0;
+
+  box-shadow:
+    0 5px 18px
+    rgba(15, 23, 42, 0.14);
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.receipt-modal-footer {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   FOOTER BUTTONS
+========================================== */
+
+.receipt-no-receipt-button,
+.receipt-close-button,
+.receipt-print-button {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* No receipt */
+
+.receipt-no-receipt-button {
+  margin-right: auto;
+
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+  color: #475569;
+}
+
+.receipt-no-receipt-button:hover {
+  background: #f8fafc;
+}
+
+
+/* Close */
+
+.receipt-close-button {
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+  color: #374151;
+}
+
+.receipt-close-button:hover {
+  background: #f8fafc;
+}
+
+
+/* Print */
+
+.receipt-print-button {
+  border: 1px solid #2563eb;
+
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.receipt-print-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+
+/* Disabled */
+
+.receipt-no-receipt-button:disabled,
+.receipt-close-button:disabled,
+.receipt-print-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   NARROW WINDOW
+========================================== */
+
+@media (max-width: 700px) {
+  .receipt-modal-backdrop {
+    padding: 10px;
+  }
+
+  .receipt-modal {
+    width: 100%;
+    max-height: 96vh;
+  }
+
+  .receipt-preview-scroll {
+    padding: 12px;
+  }
+
+  .receipt-modal-footer {
+    flex-wrap: wrap;
+  }
+
+  .receipt-no-receipt-button {
+    margin-right: 0;
+  }
+}
+
+
+/* ==========================================
+   PRINT
+========================================== */
+
+@media print {
+  .receipt-modal-backdrop,
+  .receipt-modal,
+  .receipt-modal-header,
+  .receipt-paper-settings,
+  .receipt-preview-toolbar,
+  .receipt-modal-footer {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .receipt-modal-header,
+  .receipt-paper-settings,
+  .receipt-preview-toolbar,
+  .receipt-modal-footer {
+    display: none !important;
+  }
+
+  .receipt-modal-backdrop {
+    position: static;
+
+    display: block;
+
+    padding: 0;
+  }
+
+  .receipt-modal {
+    width: auto;
+    max-height: none;
+
+    overflow: visible;
+
+    border-radius: 0;
+  }
+
+  .receipt-preview-shell,
+  .receipt-preview-scroll {
+    overflow: visible;
+
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  .receipt-preview-scroll {
+    display: block;
+  }
+
+  .receipt-preview-scroll
+  .thermal-receipt {
+    box-shadow: none;
+  }
+}

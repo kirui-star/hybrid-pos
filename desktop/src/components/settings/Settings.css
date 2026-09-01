@@ -1,0 +1,84 @@
+.settings-page {
+  min-height: 100vh;
+
+  background: #f8fafc;
+}
+
+.settings-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 24px 30px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  background: #ffffff;
+}
+
+.settings-page-header h1 {
+  margin: 0;
+
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.settings-page-header p {
+  margin: 5px 0 0;
+
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.settings-back-button {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #374151;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.settings-back-button:hover {
+  background: #f8fafc;
+}
+
+.settings-page-content {
+  width: min(
+    900px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+
+  padding: 28px 0 40px;
+}
+
+.settings-section {
+  display: grid;
+  gap: 14px;
+}
+
+.settings-section-heading h2 {
+  margin: 0;
+
+  font-size: 1rem;
+  color: #111827;
+}
+
+.settings-section-heading p {
+  margin: 4px 0 0;
+
+  font-size: 0.78rem;
+  color: #6b7280;
+}

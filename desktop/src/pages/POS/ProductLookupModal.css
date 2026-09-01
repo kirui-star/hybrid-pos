@@ -1,0 +1,287 @@
+.product-lookup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(3px);
+}
+
+.product-lookup-modal {
+  width: min(620px, 100%);
+  max-height: min(
+    700px,
+    calc(100vh - 48px)
+  );
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #dce3eb;
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 28px 70px rgba(15, 23, 42, 0.22),
+    0 5px 18px rgba(15, 23, 42, 0.1);
+
+  animation: productLookupAppear 160ms ease;
+}
+
+@keyframes productLookupAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.product-lookup-header {
+  padding: 22px 24px 18px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  border-bottom: 1px solid #e5e9ee;
+}
+
+.product-lookup-header h2 {
+  margin: 0;
+
+  color: #172033;
+  font-size: 1.22rem;
+}
+
+.product-lookup-header p {
+  margin: 6px 0 0;
+
+  color: #6b7280;
+  font-size: 0.84rem;
+}
+
+.product-lookup-close {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: transparent;
+  color: #64748b;
+
+  cursor: pointer;
+}
+
+.product-lookup-close:hover {
+  background: #f1f5f9;
+  color: #172033;
+}
+
+.product-lookup-search {
+  min-height: 56px;
+  margin: 18px 20px 8px;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 11px;
+
+  background: #ffffff;
+  color: #64748b;
+}
+
+.product-lookup-search:focus-within {
+  border-color: #1677b8;
+
+  box-shadow:
+    0 0 0 3px rgba(22, 119, 184, 0.13);
+}
+
+.product-lookup-search input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: #172033;
+
+  font: inherit;
+  font-size: 0.96rem;
+}
+
+.product-lookup-search input::placeholder {
+  color: #9aa5b4;
+}
+
+.product-lookup-search input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.product-lookup-help {
+  padding: 2px 22px 11px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  color: #8791a0;
+  font-size: 0.7rem;
+}
+
+.product-lookup-results {
+  min-height: 270px;
+  padding: 6px 12px 14px;
+
+  overflow-y: auto;
+}
+
+.product-lookup-result {
+  width: 100%;
+  min-height: 82px;
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border: 1px solid transparent;
+  border-bottom-color: #edf0f3;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #172033;
+
+  cursor: pointer;
+  text-align: left;
+
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.product-lookup-result:hover:not(:disabled),
+.product-lookup-result.selected:not(:disabled) {
+  border-color: #cfe0ec;
+  background: #f2f8fc;
+
+  box-shadow:
+    inset 3px 0 0 #1677b8;
+}
+
+.product-lookup-result:focus-visible {
+  outline: 2px solid #1677b8;
+  outline-offset: -2px;
+}
+
+.product-lookup-result:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.product-lookup-product {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.product-lookup-product strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 0.94rem;
+}
+
+.product-lookup-product span,
+.product-lookup-product small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-lookup-product span {
+  color: #667085;
+  font-size: 0.78rem;
+}
+
+.product-lookup-product small {
+  color: #98a2b3;
+  font-size: 0.7rem;
+}
+
+.product-lookup-details {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.product-lookup-details strong {
+  color: #172033;
+  font-size: 0.96rem;
+}
+
+.product-lookup-details span {
+  color: #16835f;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.product-lookup-details span.out-of-stock {
+  color: #c33f3f;
+}
+
+.product-lookup-empty {
+  min-height: 270px;
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: #8390a0;
+  text-align: center;
+}
+
+.product-lookup-empty strong {
+  color: #253142;
+  font-size: 1rem;
+}
+
+.product-lookup-empty span {
+  max-width: 320px;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}

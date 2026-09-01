@@ -1,0 +1,84 @@
+{
+  "name": "desktop",
+  "private": true,
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "type": "module",
+
+  "scripts": {
+    "dev": "vite",
+    "electron": "wait-on http://localhost:5173 && electron .",
+    "dev:desktop": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "build:win": "npm run build && electron-builder --win nsis",
+    "build:dir": "npm run build && electron-builder --dir",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+
+  "dependencies": {
+    "better-sqlite3": "^13.0.1",
+    "dotenv": "^17.4.2",
+    "lucide-react": "^1.27.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+
+  "devDependencies": {
+    "@electron/rebuild": "^4.2.0",
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^9.2.4",
+    "electron": "^39.8.10",
+    "electron-builder": "^26.15.3",
+    "eslint": "^10.6.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "globals": "^17.7.0",
+    "vite": "^8.1.1",
+    "wait-on": "^9.1.0"
+  },
+
+  "allowScripts": {
+    "better-sqlite3@13.0.1": true
+  },
+
+  "build": {
+    "appId": "com.hybridpos.desktop",
+    "productName": "HybridPOS",
+
+    "directories": {
+      "output": "release"
+    },
+
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json",
+      "node_modules/**/*"
+    ],
+
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "HybridPOS"
+    }
+  }
+}

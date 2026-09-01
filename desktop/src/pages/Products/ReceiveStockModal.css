@@ -1,0 +1,830 @@
+/* ===========================================
+   BACKDROP
+=========================================== */
+
+.receive-stock-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  z-index: 1600;
+}
+
+
+/* ===========================================
+   MODAL
+=========================================== */
+
+.receive-stock-modal {
+  width: min(900px, 96vw);
+  height: min(760px, 92vh);
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  box-shadow:
+    0 24px 60px
+    rgba(15, 23, 42, 0.26);
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.receive-stock-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 17px 22px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  background: #ffffff;
+}
+
+
+.receive-stock-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+
+.receive-stock-header p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.79rem;
+}
+
+
+.receive-stock-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+}
+
+
+.receive-stock-close:hover {
+  background: #f1f5f9;
+}
+
+
+/* ===========================================
+   BODY
+=========================================== */
+
+.receive-stock-body {
+  flex: 1;
+  min-height: 0;
+
+  padding: 18px 22px 22px;
+
+  overflow-y: auto;
+}
+
+
+/* ===========================================
+   SECTION
+=========================================== */
+
+.receive-stock-section {
+  margin-bottom: 16px;
+}
+
+
+.receive-stock-section-title,
+.receive-stock-subsection-title {
+  margin-bottom: 9px;
+
+  color: #0f172a;
+
+  font-size: 0.79rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.03em;
+}
+
+
+.receive-stock-subsection {
+  margin-top: 17px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+
+/* ===========================================
+   FIELDS
+=========================================== */
+
+.receive-stock-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 13px 16px;
+}
+
+
+.receive-stock-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.receive-stock-field > span,
+.receive-stock-readonly-field > span {
+  color: #475569;
+
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+
+.receive-stock-field input,
+.receive-stock-field select {
+  width: 100%;
+  height: 40px;
+
+  box-sizing: border-box;
+
+  padding: 0 11px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font: inherit;
+  font-size: 0.82rem;
+
+  outline: none;
+}
+
+
+.receive-stock-field input:focus,
+.receive-stock-field select:focus {
+  border-color: #64748b;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(100, 116, 139, 0.12);
+}
+
+
+/* ===========================================
+   MONEY INPUT
+=========================================== */
+
+.receive-stock-money-input {
+  height: 40px;
+
+  display: flex;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background: #ffffff;
+}
+
+
+.receive-stock-money-input:focus-within {
+  border-color: #64748b;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(100, 116, 139, 0.12);
+}
+
+
+.receive-stock-money-input > span {
+  min-width: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid #cbd5e1;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+
+.receive-stock-money-input input {
+  height: 100%;
+
+  border: 0 !important;
+  border-radius: 0;
+
+  box-shadow: none !important;
+}
+
+
+/* ===========================================
+   READ ONLY FIELD
+=========================================== */
+
+.receive-stock-readonly-field {
+  min-height: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 3px;
+
+  padding: 7px 11px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+
+  background: #f8fafc;
+}
+
+
+.receive-stock-readonly-field strong {
+  color: #0f172a;
+
+  font-size: 0.85rem;
+}
+
+
+/* ===========================================
+   RESULTS
+=========================================== */
+
+.receive-stock-results {
+  width: 100%;
+  max-height: 220px;
+
+  margin-top: 7px;
+
+  overflow-y: auto;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background: #ffffff;
+}
+
+
+.receive-stock-result {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 10px 12px;
+
+  border: 0;
+  border-bottom: 1px solid #e2e8f0;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.receive-stock-result:last-child {
+  border-bottom: 0;
+}
+
+
+.receive-stock-result:hover {
+  background: #f8fafc;
+}
+
+
+.receive-stock-result div:first-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.receive-stock-result strong {
+  color: #0f172a;
+
+  font-size: 0.8rem;
+}
+
+
+.receive-stock-result span {
+  color: #64748b;
+
+  font-size: 0.7rem;
+}
+
+
+.receive-stock-result-stock {
+  flex-shrink: 0;
+
+  color: #475569;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+
+/* ===========================================
+   SELECTED PRODUCT
+=========================================== */
+
+.receive-stock-product-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    130px
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 16px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+
+  background: #f8fafc;
+}
+
+
+.receive-stock-product-card > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.receive-stock-product-card span {
+  color: #64748b;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+
+.receive-stock-product-card strong {
+  color: #0f172a;
+
+  font-size: 0.84rem;
+}
+
+
+.receive-stock-product-card button {
+  height: 34px;
+
+  padding: 0 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 0.73rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* ===========================================
+   COST PREVIEW
+=========================================== */
+
+.receive-stock-cost-preview {
+  margin-top: 17px;
+
+  padding: 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+
+  background: #f8fafc;
+}
+
+
+.receive-stock-cost-preview-title {
+  margin-bottom: 10px;
+
+  color: #0f172a;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.03em;
+}
+
+
+.receive-stock-cost-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+.receive-stock-cost-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+
+  background: #ffffff;
+}
+
+
+.receive-stock-cost-grid span {
+  color: #64748b;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+
+.receive-stock-cost-grid strong {
+  color: #0f172a;
+
+  font-size: 0.88rem;
+}
+
+
+.receive-stock-average-highlight {
+  border-color: #94a3b8 !important;
+
+  background: #f1f5f9 !important;
+}
+
+
+.receive-stock-average-highlight strong {
+  font-weight: 800;
+}
+
+
+/* ===========================================
+   CALCULATION
+=========================================== */
+
+.receive-stock-calculation {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 7px 16px;
+
+  margin-top: 12px;
+
+  padding-top: 11px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+
+.receive-stock-calculation > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.receive-stock-calculation span {
+  color: #64748b;
+
+  font-size: 0.7rem;
+}
+
+
+.receive-stock-calculation strong {
+  color: #334155;
+
+  font-size: 0.73rem;
+}
+
+
+/* ===========================================
+   SUCCESS
+=========================================== */
+
+.receive-stock-success-card {
+  margin-bottom: 16px;
+
+  padding: 14px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 7px;
+
+  background: #f0fdf4;
+}
+
+
+.receive-stock-success-title {
+  color: #166534;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+
+.receive-stock-success-product {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 4px;
+
+  color: #334155;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+
+.receive-stock-success-product span {
+  color: #64748b;
+
+  font-size: 0.66rem;
+  font-weight: 500;
+}
+
+
+.receive-stock-summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+
+.receive-stock-summary-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  padding: 8px 10px;
+
+  border: 1px solid #dcfce7;
+  border-radius: 5px;
+
+  background: #ffffff;
+}
+
+
+.receive-stock-summary-grid span,
+.receive-stock-value-row span {
+  color: #64748b;
+
+  font-size: 0.65rem;
+}
+
+
+.receive-stock-summary-grid strong,
+.receive-stock-value-row strong {
+  color: #0f172a;
+
+  font-size: 0.78rem;
+}
+
+
+.receive-stock-value-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-top: 8px;
+}
+
+
+.receive-stock-value-row > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  padding: 8px 10px;
+
+  border-radius: 5px;
+
+  background: #dcfce7;
+}
+
+
+/* ===========================================
+   ERROR
+=========================================== */
+
+.receive-stock-error {
+  margin-top: 14px;
+
+  padding: 9px 11px;
+
+  border: 1px solid #fecaca;
+  border-radius: 5px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+
+.receive-stock-loading {
+  margin-top: 8px;
+
+  color: #64748b;
+
+  font-size: 0.75rem;
+}
+
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.receive-stock-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+
+.receive-stock-secondary-button,
+.receive-stock-primary-button {
+  min-width: 120px;
+
+  height: 40px;
+
+  padding: 0 16px;
+
+  border-radius: 6px;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.receive-stock-secondary-button {
+  border: 1px solid #cbd5e1;
+
+  background: #ffffff;
+
+  color: #334155;
+}
+
+
+.receive-stock-primary-button {
+  border: 1px solid #0f172a;
+
+  background: #0f172a;
+
+  color: #ffffff;
+}
+
+
+.receive-stock-primary-button:hover {
+  background: #1e293b;
+}
+
+
+.receive-stock-secondary-button:hover {
+  background: #f1f5f9;
+}
+
+
+.receive-stock-primary-button:disabled,
+.receive-stock-secondary-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 720px) {
+  .receive-stock-modal {
+    width: 96vw;
+    height: 94vh;
+  }
+
+
+  .receive-stock-form-grid,
+  .receive-stock-cost-grid,
+  .receive-stock-summary-grid,
+  .receive-stock-value-row,
+  .receive-stock-calculation {
+    grid-template-columns: 1fr;
+  }
+
+
+  .receive-stock-product-card {
+    grid-template-columns: 1fr;
+  }
+}

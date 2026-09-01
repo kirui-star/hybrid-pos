@@ -1,0 +1,562 @@
+/* ==========================================
+   BACKDROP
+========================================== */
+
+.receipt-printer-settings-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  z-index: 2200;
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.receipt-printer-settings-modal {
+  width: min(720px, 96vw);
+  max-height: 92vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 24px 60px
+    rgba(15, 23, 42, 0.24);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.receipt-printer-settings-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.receipt-printer-settings-header h2 {
+  margin: 0;
+
+  font-size: 1.15rem;
+  color: #111827;
+}
+
+.receipt-printer-settings-header p {
+  margin: 4px 0 0;
+
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.receipt-printer-settings-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #64748b;
+
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.receipt-printer-settings-close:hover {
+  background: #f1f5f9;
+  color: #111827;
+}
+
+.receipt-printer-settings-close:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+.receipt-printer-settings-body {
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 18px 20px;
+
+  display: grid;
+  gap: 18px;
+}
+
+.receipt-printer-settings-loading {
+  padding: 30px 20px;
+
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+
+/* ==========================================
+   SETTINGS SECTIONS
+========================================== */
+
+.printer-settings-section {
+  display: grid;
+  gap: 12px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.printer-settings-section:last-of-type {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.printer-settings-section-heading h3 {
+  margin: 0;
+
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.printer-settings-section-heading p {
+  margin: 4px 0 0;
+
+  font-size: 0.74rem;
+  line-height: 1.4;
+
+  color: #6b7280;
+}
+
+
+/* ==========================================
+   RECEIPT PREFERENCE
+========================================== */
+
+.printer-settings-choice-group {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.printer-settings-choice-group button {
+  min-height: 74px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  text-align: left;
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.printer-settings-choice-group button:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.printer-settings-choice-group button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.printer-settings-choice-group strong {
+  font-size: 0.8rem;
+  color: #111827;
+}
+
+.printer-settings-choice-group small {
+  font-size: 0.67rem;
+  line-height: 1.35;
+
+  color: #64748b;
+}
+
+.printer-settings-choice-group
+button.active strong {
+  color: #1d4ed8;
+}
+
+
+/* ==========================================
+   NORMAL FIELD
+========================================== */
+
+.printer-settings-field {
+  display: grid;
+  gap: 6px;
+}
+
+.printer-settings-field > span {
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.printer-settings-field > input {
+  height: 40px;
+
+  padding: 0 11px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #111827;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.printer-settings-field > input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.printer-settings-hint {
+  color: #b45309;
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* ==========================================
+   PAPER WIDTH OPTIONS
+========================================== */
+
+.printer-paper-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.printer-paper-options button {
+  min-width: 86px;
+  height: 36px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #374151;
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.printer-paper-options button:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.printer-paper-options button.active {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+
+/* ==========================================
+   CUSTOM WIDTH
+========================================== */
+
+.printer-custom-width-field {
+  width: min(250px, 100%);
+}
+
+.printer-custom-width-input {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.printer-custom-width-input:focus-within {
+  border-color: #2563eb;
+}
+
+.printer-custom-width-input input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 10px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.printer-custom-width-input > span {
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  border-left: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.printer-custom-width-field small {
+  color: #94a3b8;
+
+  font-size: 0.68rem;
+}
+
+
+/* ==========================================
+   PAPER SUMMARY
+========================================== */
+
+.printer-paper-summary {
+  padding: 9px 11px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #475569;
+
+  font-size: 0.73rem;
+}
+
+.printer-paper-summary strong {
+  color: #111827;
+}
+
+
+/* ==========================================
+   STATUS MESSAGES
+========================================== */
+
+.printer-settings-error {
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.printer-settings-success {
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.receipt-printer-settings-footer {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+}
+
+.printer-settings-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.printer-settings-test-button,
+.printer-settings-cancel-button,
+.printer-settings-save-button {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   TEST BUTTON
+========================================== */
+
+.printer-settings-test-button {
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+  color: #374151;
+}
+
+.printer-settings-test-button:hover {
+  background: #f8fafc;
+}
+
+
+/* ==========================================
+   CANCEL BUTTON
+========================================== */
+
+.printer-settings-cancel-button {
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+  color: #374151;
+}
+
+.printer-settings-cancel-button:hover {
+  background: #f8fafc;
+}
+
+
+/* ==========================================
+   SAVE BUTTON
+========================================== */
+
+.printer-settings-save-button {
+  border: 1px solid #2563eb;
+
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.printer-settings-save-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+
+/* ==========================================
+   DISABLED
+========================================== */
+
+.printer-settings-test-button:disabled,
+.printer-settings-cancel-button:disabled,
+.printer-settings-save-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+  .receipt-printer-settings-backdrop {
+    padding: 10px;
+  }
+
+  .receipt-printer-settings-modal {
+    width: 100%;
+    max-height: 96vh;
+  }
+
+  .printer-settings-choice-group {
+    grid-template-columns: 1fr;
+  }
+
+  .receipt-printer-settings-footer {
+    flex-wrap: wrap;
+  }
+
+  .printer-settings-footer-actions {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,4268 @@
+:root {
+  --checkout-navy: #10233f;
+  --checkout-navy-light: #173457;
+  --checkout-primary: #1677b8;
+  --checkout-primary-hover: #0f659e;
+
+  --checkout-success: #16835f;
+  --checkout-success-light: #e7f5ee;
+
+  --checkout-danger: #c33f3f;
+  --checkout-danger-light: #fff0f0;
+
+  --checkout-warning-light: #fff5e8;
+
+  --checkout-text: #18212f;
+  --checkout-muted: #697386;
+
+  --checkout-border: #dfe5ec;
+  --checkout-background: #eef2f5;
+  --checkout-surface: #ffffff;
+}
+
+
+/* ==========================================
+   GLOBAL
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   PAGE
+========================================== */
+
+.checkout-page {
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: var(--checkout-background);
+  color: var(--checkout-text);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.checkout-header {
+  flex-shrink: 0;
+
+  min-height: 92px;
+  padding: 18px 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: linear-gradient(
+    135deg,
+    var(--checkout-navy),
+    var(--checkout-navy-light)
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 14px rgba(15, 35, 63, 0.18);
+
+  z-index: 10;
+}
+
+
+.checkout-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+
+.checkout-brand-mark {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+
+.checkout-brand h1 {
+  margin: 0;
+
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+
+.checkout-brand p {
+  margin: 5px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.86rem;
+}
+
+
+.checkout-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.checkout-register-badge,
+.checkout-offline-badge {
+  min-height: 38px;
+  padding: 0 13px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: 999px;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+
+.checkout-register-badge {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+.checkout-offline-badge {
+  background: #eef7e9;
+  color: #405543;
+}
+
+
+.checkout-offline-badge span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #4d9b67;
+}
+
+
+.checkout-header-button {
+  min-height: 39px;
+  padding: 0 15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.28);
+
+  border-radius: 8px;
+
+  background: transparent;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+
+.checkout-header-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ==========================================
+   MAIN WORKSPACE
+========================================== */
+
+.checkout-workspace {
+  flex: 1;
+  min-height: 0;
+
+  padding: 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    350px;
+
+  gap: 14px;
+
+  overflow: hidden;
+}
+
+
+.checkout-sale-panel,
+.checkout-summary-panel {
+  min-height: 0;
+
+  border:
+    1px solid
+    var(--checkout-border);
+
+  border-radius: 14px;
+
+  background: var(--checkout-surface);
+
+  box-shadow:
+    0 5px 18px
+    rgba(22, 34, 51, 0.06);
+}
+
+
+/* ==========================================
+   SALE PANEL
+========================================== */
+
+.checkout-sale-panel {
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   SALE TOOLBAR
+========================================== */
+
+.checkout-sale-toolbar {
+  flex-shrink: 0;
+
+  padding: 20px 22px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  border-bottom:
+    1px solid
+    var(--checkout-border);
+}
+
+
+.checkout-sale-toolbar h2,
+.checkout-summary-header h2 {
+  margin: 0;
+
+  font-size: 1.1rem;
+}
+
+
+.checkout-sale-toolbar p,
+.checkout-summary-header p {
+  margin: 5px 0 0;
+
+  color: var(--checkout-muted);
+
+  font-size: 0.82rem;
+}
+
+
+.checkout-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.checkout-search-button,
+.checkout-clear-button {
+  min-height: 40px;
+  padding: 0 13px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border: 1px solid #cdd6e1;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #3d5067;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+
+.checkout-search-button:hover,
+.checkout-clear-button:hover {
+  background: #f7f9fb;
+}
+
+
+.checkout-search-button kbd {
+  padding: 2px 6px;
+
+  border: 1px solid #d9e0e8;
+  border-radius: 5px;
+
+  background: #edf1f5;
+  color: #6b7583;
+
+  font-family: inherit;
+  font-size: 0.68rem;
+}
+
+
+.checkout-clear-button {
+  border-color: transparent;
+
+  color: var(--checkout-danger);
+}
+
+
+/* ==========================================
+   SCANNER STATUS
+========================================== */
+
+.checkout-scanner-status {
+  flex-shrink: 0;
+
+  min-height: 40px;
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border-bottom:
+    1px solid
+    var(--checkout-border);
+
+  background: #f8fafc;
+
+  color: var(--checkout-muted);
+
+  font-size: 0.8rem;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+
+.checkout-scanner-status.success {
+  background:
+    var(--checkout-success-light);
+
+  color:
+    var(--checkout-success);
+}
+
+
+.checkout-scanner-status.error {
+  background:
+    var(--checkout-danger-light);
+
+  color:
+    var(--checkout-danger);
+}
+
+
+.checkout-scanner-status.loading {
+  color:
+    var(--checkout-primary);
+}
+
+
+/* ==========================================
+   EMPTY SALE STATE
+========================================== */
+
+.checkout-empty-state {
+  flex: 1;
+  min-height: 0;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+.checkout-empty-icon {
+  width: 90px;
+  height: 90px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 24px;
+
+  background: #edf4f8;
+  color: #628096;
+}
+
+
+.checkout-empty-state h3 {
+  margin: 20px 0 8px;
+
+  font-size: 1.2rem;
+}
+
+
+.checkout-empty-state p {
+  max-width: 400px;
+  margin: 0;
+
+  color: var(--checkout-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+.checkout-empty-search {
+  min-height: 45px;
+  margin-top: 22px;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #bfcbd7;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #29445e;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-weight: 700;
+}
+
+
+.checkout-empty-search:hover {
+  background: #f6f9fb;
+}
+
+
+/* ==========================================
+   CURRENT SALE TABLE
+========================================== */
+
+.checkout-sale-table {
+  flex: 1;
+
+  width: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   TABLE COLUMNS
+========================================== */
+
+.checkout-sale-table-header,
+.checkout-sale-item {
+  display: grid;
+
+  grid-template-columns:
+    minmax(210px, 1fr)
+    150px
+    100px
+    110px
+    50px;
+
+  align-items: center;
+
+  column-gap: 18px;
+}
+
+
+/* ==========================================
+   TABLE HEADER
+========================================== */
+
+.checkout-sale-table-header {
+  flex: 0 0 43px;
+
+  min-height: 43px;
+  padding: 0 20px;
+
+  position: relative;
+  z-index: 3;
+
+  border-bottom:
+    1px solid
+    var(--checkout-border);
+
+  background: #f7f9fb;
+  color: #5d6877;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================
+   SALE ITEMS AREA
+
+   IMPORTANT:
+   This area keeps the SAME overall size.
+
+   Rows share the available height.
+
+   1–16 products:
+   progressively smaller rows.
+
+   17+ products:
+   minimum row size + scrolling.
+========================================== */
+
+.checkout-sale-items {
+  flex: 1;
+  min-height: 0;
+
+  position: relative;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-gutter: stable;
+
+  overscroll-behavior: contain;
+}
+
+
+/* ==========================================
+   ADAPTIVE ROW
+
+   The parent size never changes.
+
+   Row height =
+   available sale-list height / item count.
+
+   Maximum row = 112px
+   Minimum row = 30px.
+
+   JSX should cap:
+   --cart-item-count at 16.
+========================================== */
+
+.checkout-sale-item {
+  width: 100%;
+
+  height: clamp(
+    30px,
+    calc(
+      100% /
+      var(--cart-item-count)
+    ),
+    112px
+  );
+
+  min-height: 30px;
+
+  padding-inline:
+    clamp(
+      12px,
+      calc(
+        20px -
+        (
+          (var(--cart-item-count) - 1)
+          * 0.53px
+        )
+      ),
+      20px
+    );
+
+  padding-block:
+    clamp(
+      2px,
+      calc(
+        12px -
+        (
+          (var(--cart-item-count) - 1)
+          * 0.67px
+        )
+      ),
+      12px
+    );
+
+  border-bottom:
+    1px solid
+    #edf0f3;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  transition:
+    height 180ms ease,
+    padding 180ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+
+.checkout-sale-item:last-child {
+  border-bottom: 0;
+}
+
+
+.checkout-sale-item.recently-scanned {
+  background: #eaf5ff;
+
+  box-shadow:
+    inset 4px 0 0
+    var(--checkout-primary);
+}
+
+
+/* ==========================================
+   PRODUCT INFORMATION
+========================================== */
+
+.checkout-item-product {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: clamp(
+    1px,
+    calc(
+      6px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.33px
+      )
+    ),
+    6px
+  );
+}
+
+
+.checkout-item-product strong {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: clamp(
+    0.72rem,
+    calc(
+      1.08rem -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.024rem
+      )
+    ),
+    1.08rem
+  );
+
+  line-height: 1.15;
+
+  transition:
+    font-size 180ms ease;
+}
+
+
+.checkout-item-product span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color:
+    var(--checkout-muted);
+
+  font-size: clamp(
+    0.58rem,
+    calc(
+      0.82rem -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.016rem
+      )
+    ),
+    0.82rem
+  );
+
+  line-height: 1.15;
+
+  transition:
+    font-size 180ms ease;
+}
+
+
+/* ==========================================
+   QUANTITY CONTROL
+========================================== */
+
+.checkout-quantity-control {
+  width: max-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  border:
+    1px solid
+    #d4dce5;
+
+  border-radius:
+    clamp(
+      5px,
+      calc(
+        9px -
+        (
+          (var(--cart-item-count) - 1)
+          * 0.26px
+        )
+      ),
+      9px
+    );
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+.checkout-quantity-control button {
+  width: clamp(
+    24px,
+    calc(
+      38px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.93px
+      )
+    ),
+    38px
+  );
+
+  height: clamp(
+    24px,
+    calc(
+      36px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.8px
+      )
+    ),
+    36px
+  );
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: #47596c;
+
+  cursor: pointer;
+
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    background 150ms ease;
+}
+
+
+.checkout-quantity-control button:hover {
+  background: #edf2f6;
+}
+
+
+.checkout-quantity-control button svg {
+  width: clamp(
+    12px,
+    calc(
+      16px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.25px
+      )
+    ),
+    16px
+  );
+
+  height: clamp(
+    12px,
+    calc(
+      16px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.25px
+      )
+    ),
+    16px
+  );
+}
+
+
+.checkout-quantity-control strong {
+  min-width: clamp(
+    28px,
+    calc(
+      42px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.93px
+      )
+    ),
+    42px
+  );
+
+  text-align: center;
+
+  font-size: clamp(
+    0.68rem,
+    calc(
+      0.9rem -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.015rem
+      )
+    ),
+    0.9rem
+  );
+
+  transition:
+    font-size 180ms ease,
+    min-width 180ms ease;
+}
+
+
+/* ==========================================
+   UNIT PRICE
+========================================== */
+
+.checkout-unit-price {
+  color:
+    var(--checkout-muted);
+
+  font-size: clamp(
+    0.7rem,
+    calc(
+      0.92rem -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.015rem
+      )
+    ),
+    0.92rem
+  );
+
+  white-space: nowrap;
+
+  transition:
+    font-size 180ms ease;
+}
+
+
+/* ==========================================
+   LINE TOTAL
+========================================== */
+
+.checkout-line-total {
+  font-size: clamp(
+    0.72rem,
+    calc(
+      0.98rem -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.017rem
+      )
+    ),
+    0.98rem
+  );
+
+  white-space: nowrap;
+
+  transition:
+    font-size 180ms ease;
+}
+
+
+/* ==========================================
+   REMOVE PRODUCT BUTTON
+========================================== */
+
+.checkout-remove-item {
+  width: clamp(
+    25px,
+    calc(
+      38px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.86px
+      )
+    ),
+    38px
+  );
+
+  height: clamp(
+    25px,
+    calc(
+      38px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.86px
+      )
+    ),
+    38px
+  );
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: transparent;
+  color: #9a5a5a;
+
+  cursor: pointer;
+
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    background 150ms ease,
+    color 150ms ease;
+}
+
+
+.checkout-remove-item svg {
+  width: clamp(
+    13px,
+    calc(
+      18px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.33px
+      )
+    ),
+    18px
+  );
+
+  height: clamp(
+    13px,
+    calc(
+      18px -
+      (
+        (var(--cart-item-count) - 1)
+        * 0.33px
+      )
+    ),
+    18px
+  );
+}
+
+
+.checkout-remove-item:hover {
+  background:
+    var(--checkout-danger-light);
+
+  color:
+    var(--checkout-danger);
+}
+
+
+/* ==========================================
+   TABLE SCROLLBAR
+========================================== */
+
+.checkout-sale-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.checkout-sale-items::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.checkout-sale-items::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: #cbd5df;
+}
+
+
+.checkout-sale-items::-webkit-scrollbar-thumb:hover {
+  background: #aebbc8;
+}
+
+
+/* ==========================================
+   BOTTOM SALE TOOLBAR
+========================================== */
+
+.checkout-bottom-toolbar {
+  flex-shrink: 0;
+
+  min-height: 58px;
+  padding: 8px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border-top:
+    1px solid
+    var(--checkout-border);
+
+  background: #f8fafb;
+}
+
+
+.checkout-bottom-toolbar button {
+  min-height: 40px;
+  padding: 0 15px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #4d5d70;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+
+.checkout-bottom-toolbar button:hover:not(
+  :disabled
+) {
+  background: #e9eef3;
+}
+
+
+.checkout-bottom-toolbar button:disabled {
+  opacity: 0.42;
+
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   ORDER SUMMARY PANEL
+========================================== */
+
+.checkout-summary-panel {
+  height: 100%;
+  min-height: 0;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* Header */
+
+.checkout-summary-header {
+  flex-shrink: 0;
+
+  padding-bottom: 12px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  border-bottom: 1px solid var(--checkout-border);
+}
+
+
+
+.checkout-summary-header > span {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #eef1f4;
+  color: var(--checkout-muted);
+
+  font-size: 0.76rem;
+}
+
+
+/* ==========================================
+   SUMMARY BREAKDOWN
+========================================== */
+
+.checkout-summary-breakdown {
+  flex-shrink: 0;
+
+  padding: 12px 2px;
+
+  display: grid;
+  gap: 8px;
+}
+
+
+.checkout-summary-breakdown > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+
+.checkout-summary-breakdown span {
+  color: var(--checkout-muted);
+
+  font-size: 0.84rem;
+}
+
+
+.checkout-summary-breakdown small {
+  font-size: 0.7rem;
+}
+
+
+.checkout-summary-breakdown strong {
+  font-size: 0.88rem;
+}
+
+
+/* ==========================================
+   TOTAL DUE
+========================================== */
+
+.checkout-total-card {
+  flex-shrink: 0;
+
+  min-height: 88px;
+  padding: 14px 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  border-radius: 12px;
+}
+
+.checkout-total-card strong {
+  font-size: 1.75rem;
+}
+
+
+.checkout-total-card span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+.checkout-total-card strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+/* ==========================================
+   CASH RECEIVED
+========================================== */
+
+/* Cash field */
+
+.checkout-cash-field {
+  margin-top: 4px;
+  gap: 6px;
+}
+
+.checkout-cash-field > div {
+  min-height: 44px;
+}
+
+
+
+.checkout-cash-field > span {
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+
+.checkout-cash-field > div {
+  min-height: 50px;
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  border:
+    1px solid
+    #ced6df;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #748091;
+}
+
+
+.checkout-cash-field > div:focus-within {
+  border-color:
+    var(--checkout-primary);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(22, 119, 184, 0.12);
+}
+
+
+.checkout-cash-field input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--checkout-text);
+
+  font: inherit;
+  font-size: 1rem;
+}
+
+
+.checkout-cash-field input:disabled {
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   BALANCE
+========================================== */
+
+.checkout-balance-card {
+  flex-shrink: 0;
+
+  min-height: 58px;
+  margin-top: 13px;
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  border:
+    1px solid
+    #ead3b9;
+
+  border-radius: 10px;
+
+  background:
+    var(--checkout-warning-light);
+}
+
+
+.checkout-balance-card span {
+  color: #835f3b;
+
+  font-size: 0.81rem;
+  font-weight: 600;
+}
+
+
+.checkout-balance-card strong {
+  color: #71341f;
+
+  font-size: 1rem;
+}
+
+
+.checkout-balance-card.change {
+  border-color: #bcdcca;
+
+  background:
+    var(--checkout-success-light);
+}
+
+
+.checkout-balance-card.change span,
+.checkout-balance-card.change strong {
+  color:
+    var(--checkout-success);
+}
+
+
+/* ==========================================
+   SUMMARY SPACER
+========================================== */
+
+.checkout-summary-spacer {
+  flex: 1;
+
+  min-height: 20px;
+}
+
+
+/* ==========================================
+   COMPLETE / CANCEL BUTTONS
+========================================== */
+
+.checkout-complete-button,
+.checkout-cancel-button {
+  flex-shrink: 0;
+
+  width: 100%;
+  min-height: 50px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-weight: 800;
+}
+
+
+.checkout-complete-button {
+  border: 0;
+
+  background:
+    var(--checkout-success);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 16px
+    rgba(22, 131, 95, 0.2);
+}
+
+
+.checkout-complete-button:hover:not(
+  :disabled
+) {
+  background: #116f50;
+}
+
+
+.checkout-complete-button:disabled {
+  background: #afd4c1;
+
+  box-shadow: none;
+
+  cursor: not-allowed;
+}
+
+
+.checkout-cancel-button {
+  margin-top: 8px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+  color: #a04b4b;
+}
+
+
+.checkout-cancel-button:hover:not(
+  :disabled
+) {
+  background:
+    var(--checkout-danger-light);
+}
+
+
+.checkout-cancel-button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   START SCANNING HEADING
+========================================== */
+
+.scan-header {
+  margin: 0;
+
+  color: #2563eb;
+
+  font-size: 1.5rem;
+  font-weight: 200;
+
+  line-height: 1.1;
+
+  text-align: left;
+}
+
+
+.scan-header span {
+  display: block;
+}
+
+
+/* ==========================================
+   RESPONSIVE — MEDIUM DESKTOP
+========================================== */
+
+@media (max-width: 1050px) {
+  .checkout-workspace {
+    grid-template-columns:
+      minmax(0, 1fr)
+      320px;
+  }
+
+  .checkout-sale-table-header,
+  .checkout-sale-item {
+    grid-template-columns:
+      minmax(170px, 1fr)
+      130px
+      90px
+      100px
+      44px;
+
+    column-gap: 10px;
+  }
+}
+
+
+/* ==========================================
+   RESPONSIVE — TABLET / SMALL SCREEN
+========================================== */
+
+@media (max-width: 850px) {
+  .checkout-page {
+    height: auto;
+    min-height: 100vh;
+
+    overflow: auto;
+  }
+
+  .checkout-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .checkout-header-actions {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .checkout-workspace {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    overflow: visible;
+  }
+
+  .checkout-sale-panel {
+    height: 700px;
+    min-height: 700px;
+  }
+
+  .checkout-summary-panel {
+    height: auto;
+    min-height: 540px;
+  }
+}
+
+/* ==========================================
+   PAYMENT METHOD
+========================================== */
+
+/* Payment section */
+
+.checkout-payment-section {
+  flex-shrink: 0;
+
+  display: grid;
+  gap: 9px;
+
+  margin-top: 12px;
+}
+
+
+.checkout-payment-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Payment buttons */
+
+.checkout-payment-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.checkout-payment-methods button {
+  min-height: 40px;
+}
+
+.checkout-payment-methods button {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid #cfd7df;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #425466;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-weight: 700;
+}
+
+.checkout-payment-methods button:hover:not(:disabled) {
+  background: #f5f8fa;
+}
+
+.checkout-payment-methods button.active {
+  border-color: var(--checkout-primary);
+
+  background: #eaf4fb;
+  color: var(--checkout-primary);
+}
+
+.checkout-payment-methods button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   QUICK CASH
+========================================== */
+
+/* Quick cash */
+
+.checkout-quick-cash {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.checkout-quick-cash button {
+  min-height: 36px;
+  padding: 6px 8px;
+}
+
+.checkout-quick-cash button:hover {
+  border-color: var(--checkout-primary);
+
+  background: #f2f8fc;
+
+  color: var(--checkout-primary);
+}
+
+
+/* ==========================================
+   M-PESA PLACEHOLDER
+========================================== */
+
+.checkout-mpesa-card {
+  padding: 16px;
+
+  display: grid;
+  gap: 8px;
+
+  border: 1px solid #b8dec8;
+  border-radius: 10px;
+
+  background: #edf8f1;
+}
+
+.checkout-mpesa-card strong {
+  color: #167247;
+}
+
+.checkout-mpesa-card p {
+  margin: 0;
+
+  color: #637166;
+
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.checkout-mpesa-card span {
+  color: #274f38;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ==========================================
+   THREE PAYMENT METHODS
+========================================== */
+
+.checkout-payment-methods-three {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.checkout-payment-methods-three button {
+  padding-inline: 8px;
+}
+
+
+/* ==========================================
+   SPLIT PAYMENT
+========================================== */
+
+.checkout-split-payment {
+  display: grid;
+  gap: 9px;
+}
+
+.checkout-payment-field {
+  display: grid;
+  gap: 6px;
+}
+
+.checkout-payment-field > span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.checkout-payment-field > div {
+  min-height: 42px;
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: 1px solid #ced6df;
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+.checkout-payment-field input {
+  width: 100%;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  font: inherit;
+}
+
+
+/* ==========================================
+   SPLIT EXACT
+========================================== */
+
+.checkout-split-exact-button {
+  min-height: 38px;
+
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+
+  background: #f7f9fb;
+  color: #334155;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checkout-split-exact-button:hover:not(:disabled) {
+  border-color: var(--checkout-primary);
+
+  color: var(--checkout-primary);
+}
+
+.checkout-split-exact-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   SPLIT TOTALS
+========================================== */
+
+.checkout-payment-progress {
+  padding: 11px 13px;
+
+  display: grid;
+  gap: 8px;
+
+  border: 1px solid #dce3ea;
+  border-radius: 9px;
+
+  background: #f8fafc;
+}
+
+.checkout-payment-progress > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout-payment-progress span {
+  color: #657181;
+  font-size: 0.8rem;
+}
+
+.checkout-payment-progress strong {
+  font-size: 0.9rem;
+}
+
+.checkout-discount-section {
+  margin: 12px 0;
+}
+
+.checkout-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.checkout-discount-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.checkout-discount-types {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.checkout-discount-types button {
+  height: 36px;
+  min-width: 44px;
+  padding: 0 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.checkout-discount-types button:first-child {
+  min-width: 65px;
+}
+
+.checkout-discount-types button.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.checkout-discount-types button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkout-discount-clear {
+  border: 0;
+  background: transparent;
+  color: #b91c1c;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   DISCOUNT SECTION
+========================================== */
+
+.checkout-discount-section {
+  display: grid;
+  gap: 10px;
+
+  margin: 10px 0 14px;
+}
+
+
+/* ==========================================
+   DISCOUNT TYPE ROW
+========================================== */
+
+.checkout-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+}
+
+.checkout-discount-label {
+  flex-shrink: 0;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.checkout-discount-types {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkout-discount-types button {
+  height: 34px;
+  min-width: 48px;
+
+  padding: 0 10px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #374151;
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.checkout-discount-types button:first-child {
+  min-width: 60px;
+}
+
+.checkout-discount-types button.active {
+  border-color: #2563eb;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.checkout-discount-types button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.checkout-discount-clear {
+  margin-left: auto;
+
+  padding: 4px 2px;
+
+  border: 0;
+
+  background: transparent;
+  color: #dc2626;
+
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   AMOUNT + REASON ONE LINE
+========================================== */
+
+.checkout-discount-input-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(120px, 0.8fr)
+    minmax(150px, 1.2fr);
+
+  gap: 10px;
+
+  align-items: end;
+}
+
+
+/* ==========================================
+   DISCOUNT FIELD
+========================================== */
+
+.checkout-discount-field {
+  display: grid;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.checkout-discount-field > span {
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.checkout-discount-field small {
+  color: #9ca3af;
+  font-size: 0.68rem;
+  font-weight: 400;
+}
+
+
+/* ==========================================
+   DISCOUNT AMOUNT INPUT
+========================================== */
+
+.checkout-discount-input {
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+}
+
+.checkout-discount-prefix {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 8px;
+
+  border-right: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+
+  color: #374151;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.checkout-discount-input input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0 8px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+
+/* ==========================================
+   REASON INPUT
+========================================== */
+
+.checkout-discount-reason-field > input {
+  width: 100%;
+  min-width: 0;
+  height: 34px;
+
+  padding: 0 9px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  font: inherit;
+  font-size: 0.78rem;
+}
+
+.checkout-discount-input:focus-within,
+.checkout-discount-reason-field > input:focus {
+  border-color: #2563eb;
+}
+
+
+/* ==========================================
+   SMALL SCREEN
+========================================== */
+
+@media (max-width: 1150px) {
+  .checkout-discount-input-row {
+    grid-template-columns:
+      minmax(105px, 0.75fr)
+      minmax(130px, 1.25fr);
+
+    gap: 7px;
+  }
+
+  .checkout-discount-types button {
+    min-width: 42px;
+    padding: 0 7px;
+  }
+
+  .checkout-discount-types button:first-child {
+    min-width: 54px;
+  }
+}
+
+
+
+
+/* =========================================
+   COMPACT PAYMENT SECTION
+========================================= */
+
+/* Payment method area */
+.checkout-payment-section {
+  margin-top: 10px;
+}
+
+.checkout-payment-section h4,
+.checkout-payment-label {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+}
+
+
+/* Cash / M-Pesa / Split */
+.checkout-payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.checkout-payment-methods button {
+  min-height: 38px;
+  height: 38px;
+
+  padding: 4px 8px;
+
+  font-size: 0.82rem;
+  border-radius: 8px;
+}
+
+
+/* Cash received area */
+.checkout-cash-section {
+  margin-top: 9px;
+}
+
+.checkout-cash-section label {
+  display: block;
+  margin-bottom: 4px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+
+/* Cash received input */
+.checkout-cash-input {
+  height: 38px;
+  min-height: 38px;
+
+  padding: 0 10px;
+
+  font-size: 0.85rem;
+}
+
+
+/* Quick cash buttons */
+.checkout-quick-cash {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 5px;
+
+  margin-top: 6px;
+}
+
+.checkout-quick-cash button {
+  height: 32px;
+  min-height: 32px;
+
+  padding: 3px 6px;
+
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+
+
+/* Amount remaining / Change due */
+.checkout-payment-status {
+  min-height: 44px;
+
+  margin-top: 8px;
+  padding: 8px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 8px;
+}
+
+.checkout-payment-status span {
+  font-size: 0.76rem;
+}
+
+.checkout-payment-status strong {
+  font-size: 0.88rem;
+}
+
+
+/* Complete sale */
+.checkout-complete-button {
+  min-height: 42px;
+  height: 42px;
+
+  margin-top: 8px;
+
+  padding: 6px 10px;
+
+  font-size: 0.85rem;
+}
+
+
+/* Cancel sale */
+.checkout-cancel-button {
+  min-height: 30px;
+
+  margin-top: 3px;
+  padding: 3px 8px;
+
+  font-size: 0.75rem;
+}
+
+/* ===========================================
+   Receipt Preference - POS Footer
+=========================================== */
+
+.pos-receipt-preference {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-left: 8px;
+
+  font-size: 0.78rem;
+  color: #475569;
+}
+
+.pos-receipt-icon {
+  font-size: 0.9rem;
+}
+
+.pos-receipt-preference label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pos-receipt-preference select {
+  height: 32px;
+
+  padding: 0 28px 0 10px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #374151;
+  font: inherit;
+  font-size: 0.76rem;
+
+  cursor: pointer;
+}
+
+.pos-receipt-preference select:hover {
+  border-color: #94a3b8;
+}
+
+.pos-receipt-preference select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.pos-receipt-preference select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   COMPACT TOTAL + PAYMENT METHOD
+========================================== */
+
+.checkout-total-payment-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(105px, 0.75fr)
+    minmax(0, 1.25fr);
+
+  gap: 7px;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  margin: 10px 0 8px;
+}
+
+
+/* ==========================================
+   TOTAL DUE
+========================================== */
+
+.checkout-total-payment-row
+.checkout-total-card {
+  margin: 0;
+
+  min-width: 0;
+  min-height: 76px;
+
+  padding: 10px 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+.checkout-total-payment-row
+.checkout-total-card span {
+  font-size: 0.68rem;
+}
+
+.checkout-total-payment-row
+.checkout-total-card strong {
+  font-size: 1.25rem;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   PAYMENT METHOD
+========================================== */
+
+.checkout-payment-method-inline {
+  min-width: 0;
+  min-height: 76px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 8px 9px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.checkout-payment-method-inline
+.checkout-payment-label {
+  margin: 0;
+
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   PAYMENT BUTTONS
+========================================== */
+
+.checkout-payment-method-inline
+.checkout-payment-methods-three {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 4px;
+
+  width: 100%;
+
+  margin: 0;
+}
+
+.checkout-payment-method-inline
+.checkout-payment-methods-three
+button {
+  min-width: 0;
+
+  height: 32px;
+
+  padding: 0 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  border-radius: 7px;
+
+  white-space: nowrap;
+}
+
+.checkout-payment-method-inline
+.checkout-payment-methods-three
+button svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* ==========================================
+   PAYMENT DETAILS BELOW
+========================================== */
+
+.checkout-payment-section {
+  margin-top: 6px;
+}
+
+/* ==========================================
+   ALIGN TOTAL DUE WITH PAYMENT AREA
+========================================== */
+
+.checkout-total-payment-row {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  gap: 10px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.checkout-total-payment-row
+.checkout-total-card {
+  margin: 0;
+  padding: 10px 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
+.checkout-total-payment-row
+.checkout-total-card span {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.checkout-total-payment-row
+.checkout-total-card strong {
+  margin-top: 4px;
+
+  font-size: 1.35rem;
+  line-height: 1.1;
+
+  white-space: nowrap;
+}
+
+.checkout-payment-method-inline {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.checkout-payment-method-inline
+.checkout-payment-methods-three {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 5px;
+}
+
+.checkout-payment-method-inline
+.checkout-payment-methods-three button {
+  min-width: 0;
+  height: 38px;
+
+  padding: 0 5px;
+
+  font-size: 0.7rem;
+}
+
+/* ==========================================
+   TOTAL DUE + PAYMENT ALIGNMENT FIX
+========================================== */
+
+.checkout-total-payment-row {
+  display: grid !important;
+  grid-template-columns:
+    165px minmax(0, 1fr) !important;
+
+  gap: 16px !important;
+
+  align-items: start !important;
+
+  width: 100%;
+}
+
+
+/* LEFT — TOTAL DUE */
+
+.checkout-total-payment-row
+.checkout-total-card {
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  min-height: 0 !important;
+  height: auto !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+
+  align-self: start !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+
+.checkout-total-payment-row
+.checkout-total-card span {
+  margin: 0 0 6px 0 !important;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+.checkout-total-payment-row
+.checkout-total-card strong {
+  margin: 0 !important;
+
+  font-size: 1.55rem;
+  line-height: 1.1;
+
+  white-space: nowrap;
+}
+
+
+/* RIGHT — PAYMENT */
+
+.checkout-total-payment-row
+.checkout-payment-section {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  min-width: 0;
+
+  align-self: start !important;
+}
+
+
+.checkout-total-payment-row
+.checkout-payment-label {
+  display: block;
+
+  margin: 0 0 10px 0 !important;
+}
+
+/* ==========================================
+   PAYMENT AREA
+========================================== */
+
+.checkout-payment-layout {
+  display: grid;
+
+  grid-template-columns:
+    155px minmax(0, 1fr);
+
+  gap: 20px;
+
+  align-items: start;
+
+  width: 100%;
+
+  margin-top: 16px;
+}
+
+
+/* ==========================================
+   LEFT COLUMN
+========================================== */
+
+.checkout-payment-left {
+  width: 155px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* ==========================================
+   TOTAL DUE
+========================================== */
+
+.checkout-payment-left
+.checkout-total-card {
+  box-sizing: border-box;
+
+  width: 155px;
+  height: 92px;
+
+  margin: 0;
+
+  padding: 13px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+
+.checkout-payment-left
+.checkout-total-card span {
+  margin: 0;
+
+  font-size: 0.74rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+.checkout-payment-left
+.checkout-total-card strong {
+  margin-top: 8px;
+
+  font-size: 1.45rem;
+  line-height: 1;
+
+  color: #111827;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   CASH RECEIVED
+   SAME SIZE AS TOTAL DUE
+========================================== */
+
+.checkout-cash-compact {
+  box-sizing: border-box;
+
+  width: 155px;
+  height: 92px;
+
+  margin: 0;
+
+  padding: 13px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+
+.checkout-cash-compact > span {
+  font-size: 0.74rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+.checkout-cash-compact-value {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+
+.checkout-cash-compact-value > span {
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  color: #111827;
+
+  white-space: nowrap;
+}
+
+
+.checkout-cash-compact-value input {
+  width: 72px;
+  min-width: 0;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #111827;
+
+  font: inherit;
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  appearance: textfield;
+}
+
+
+.checkout-cash-compact-value
+input::-webkit-inner-spin-button,
+.checkout-cash-compact-value
+input::-webkit-outer-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+
+/* ==========================================
+   RIGHT COLUMN
+========================================== */
+
+.checkout-payment-right {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+/* ==========================================
+   PAYMENT LABEL
+========================================== */
+
+.checkout-payment-right
+.checkout-payment-label {
+  display: block;
+
+  margin: 0;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+/* ==========================================
+   PAYMENT METHOD BUTTONS
+========================================== */
+
+.checkout-payment-right
+.checkout-payment-methods-three {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 7px;
+
+  margin: 0;
+}
+
+
+.checkout-payment-right
+.checkout-payment-methods-three
+button {
+  min-width: 0;
+  height: 42px;
+
+  padding: 0 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  border-radius: 9px;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   CASH HELP
+========================================== */
+
+.checkout-cash-help {
+  min-height: 66px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+
+.checkout-cash-help svg {
+  flex-shrink: 0;
+}
+
+
+/* ==========================================
+   QUICK CASH — ALL FOUR ONE LINE
+========================================== */
+
+.checkout-quick-cash-one-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 7px;
+
+  width: 100%;
+
+  margin: 16px 0 14px;
+}
+
+
+.checkout-quick-cash-one-row
+button {
+  min-width: 0;
+  height: 40px;
+
+  padding: 0 6px;
+
+  border-radius: 8px;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   BALANCE
+========================================== */
+
+.checkout-balance-wide {
+  width: 100%;
+
+  min-height: 56px;
+
+  margin-top: 0;
+}
+
+
+/* ==========================================
+   KEEP PAYMENT AREA INSIDE PANEL
+========================================== */
+
+.checkout-summary-panel {
+  overflow-x: hidden;
+}
+
+
+/* ==========================================
+   SLIGHTLY NARROWER WINDOWS
+========================================== */
+
+@media (max-width: 1100px) {
+
+  .checkout-payment-layout {
+    grid-template-columns:
+      145px minmax(0, 1fr);
+
+    gap: 12px;
+  }
+
+
+  .checkout-payment-left,
+  .checkout-payment-left
+  .checkout-total-card,
+  .checkout-cash-compact {
+    width: 145px;
+  }
+
+
+  .checkout-payment-right
+  .checkout-payment-methods-three {
+    gap: 4px;
+  }
+
+
+  .checkout-payment-right
+  .checkout-payment-methods-three
+  button {
+    padding: 0 4px;
+
+    font-size: 0.65rem;
+  }
+
+
+  .checkout-quick-cash-one-row {
+    gap: 5px;
+  }
+
+
+  .checkout-quick-cash-one-row
+  button {
+    font-size: 0.62rem;
+  }
+}
+
+
+.checkout-mpesa-card {
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  display: grid;
+  gap: 6px;
+}
+
+.checkout-mpesa-card p {
+  margin: 0;
+
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.checkout-mpesa-card span {
+  font-size: 0.72rem;
+}
+
+/* ==========================================
+   TWO-STAGE PAYMENT REDESIGN
+========================================== */
+
+.checkout-workspace {
+  grid-template-columns:
+    minmax(0, 1fr)
+    350px;
+}
+
+.checkout-payment-workspace {
+  min-height: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--checkout-border);
+  border-radius: 14px;
+
+  background: var(--checkout-surface);
+
+  box-shadow:
+    0 5px 18px
+    rgba(22, 34, 51, 0.06);
+
+  overflow: hidden;
+}
+
+.checkout-payment-workspace-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  padding: 18px 22px;
+
+  border-bottom: 1px solid var(--checkout-border);
+
+  background: #ffffff;
+}
+
+.checkout-payment-workspace-header h2 {
+  margin: 0;
+
+  font-size: 1.08rem;
+}
+
+.checkout-payment-workspace-header p {
+  margin: 4px 0 0;
+
+  color: var(--checkout-muted);
+
+  font-size: 0.8rem;
+}
+
+.checkout-back-to-cart-button,
+.checkout-back-cart-summary {
+  min-height: 40px;
+
+  padding: 0 14px;
+
+  border: 1px solid #cfd7df;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #3d5067;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.checkout-back-to-cart-button:hover,
+.checkout-back-cart-summary:hover {
+  background: #f7f9fb;
+}
+
+.checkout-payment-content {
+  flex: 1;
+  min-height: 0;
+
+  padding: 18px 22px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+}
+
+.checkout-payment-total-banner {
+  width: min(760px, 100%);
+
+  margin-bottom: 14px;
+  padding: 15px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  border: 1px solid #d8e1ea;
+  border-radius: 12px;
+
+  background: #f8fafc;
+}
+
+.checkout-payment-total-banner span {
+  color: var(--checkout-muted);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checkout-payment-total-banner strong {
+  color: var(--checkout-text);
+
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.checkout-payment-card {
+  width: min(760px, 100%);
+
+  padding: 18px;
+
+  border: 1px solid #dfe5ec;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 14px
+    rgba(22, 34, 51, 0.05);
+}
+
+.checkout-payment-card .checkout-payment-methods,
+.checkout-payment-card .checkout-payment-methods-three {
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.checkout-payment-card .checkout-payment-methods button {
+  min-height: 46px;
+}
+
+.checkout-payment-card .checkout-payment-row,
+.checkout-payment-card .checkout-payment-layout {
+  grid-template-columns: 1fr;
+}
+
+.checkout-payment-card .checkout-payment-section {
+  margin-top: 14px;
+
+  gap: 12px;
+}
+
+.checkout-payment-card .checkout-payment-field {
+  gap: 6px;
+}
+
+.checkout-payment-card .checkout-payment-field > div,
+.checkout-payment-card .checkout-cash-field > div {
+  min-height: 48px;
+}
+
+.checkout-payment-card .checkout-quick-cash,
+.checkout-payment-card .checkout-quick-cash-one-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.checkout-payment-card .checkout-quick-cash-one-row button,
+.checkout-payment-card .checkout-quick-cash button {
+  min-height: 40px;
+}
+
+.checkout-payment-card .checkout-balance-card,
+.checkout-payment-card .checkout-balance-wide {
+  margin-top: 14px;
+}
+
+.checkout-payment-card .checkout-mpesa-card {
+  margin-top: 12px;
+}
+
+.checkout-payment-card .checkout-payment-progress {
+  margin-top: 12px;
+}
+
+.checkout-payment-actions {
+  margin-top: 16px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    150px;
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+.checkout-complete-button-payment {
+  margin-top: 0;
+}
+
+.checkout-cancel-button-payment {
+  margin-top: 0;
+}
+
+.checkout-summary-panel-compact {
+  padding: 16px;
+}
+
+.checkout-summary-total {
+  margin-top: 6px;
+  padding: 16px 14px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  border: 1px solid #dbe3eb;
+  border-radius: 12px;
+
+  background: #f8fafc;
+}
+
+.checkout-summary-total span {
+  color: var(--checkout-muted);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.checkout-summary-total strong {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.checkout-summary-discount {
+  margin-top: 14px;
+
+  display: grid;
+  gap: 8px;
+}
+
+.checkout-summary-discount .checkout-discount-types {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 7px;
+}
+
+.checkout-summary-discount .checkout-discount-types button {
+  min-height: 38px;
+
+  border: 1px solid #cfd7df;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #425466;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.checkout-summary-discount .checkout-discount-types button.active {
+  border-color: var(--checkout-primary);
+
+  background: #eaf4fb;
+  color: var(--checkout-primary);
+}
+
+.checkout-summary-discount-field {
+  margin-top: 2px;
+}
+
+.checkout-pay-now-button {
+  width: 100%;
+  min-height: 52px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: var(--checkout-success);
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 16px
+    rgba(22, 131, 95, 0.2);
+}
+
+.checkout-pay-now-button:hover:not(:disabled) {
+  background: #116f50;
+}
+
+.checkout-pay-now-button:disabled {
+  background: #afd4c1;
+
+  box-shadow: none;
+
+  cursor: not-allowed;
+}
+
+.checkout-summary-payment-note {
+  margin-top: 14px;
+  padding: 10px 12px;
+
+  border: 1px solid #dbe3eb;
+  border-radius: 9px;
+
+  background: #f8fafc;
+  color: #64748b;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.checkout-back-cart-summary {
+  width: 100%;
+}
+
+@media (max-width: 1050px) {
+  .checkout-workspace {
+    grid-template-columns:
+      minmax(0, 1fr)
+      310px;
+  }
+
+  .checkout-payment-card,
+  .checkout-payment-total-banner {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .checkout-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-payment-workspace {
+    min-height: 680px;
+  }
+
+  .checkout-payment-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-payment-card .checkout-quick-cash,
+  .checkout-payment-card .checkout-quick-cash-one-row {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ==========================================
+   PAYMENT CLEANUP
+   - Order Summary already shows Total Due
+   - Payment Method first
+   - Cash Received directly below methods
+========================================== */
+
+.checkout-payment-total-banner {
+  display: none !important;
+}
+
+.checkout-payment-layout-simple {
+  display: block !important;
+}
+
+.checkout-payment-layout-simple
+.checkout-payment-right-full {
+  width: 100%;
+  min-width: 0;
+}
+
+.checkout-payment-layout-simple
+.checkout-payment-methods-three {
+  width: 100%;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.checkout-cash-below-method {
+  width: 100%;
+
+  margin-top: 16px;
+
+  display: grid;
+
+  gap: 7px;
+}
+
+.checkout-cash-below-method > span {
+  color: var(--checkout-text);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.checkout-cash-below-method
+.checkout-cash-compact-value {
+  width: 100%;
+
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 14px;
+
+  border: 1px solid #ced6df;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.checkout-cash-below-method
+.checkout-cash-compact-value:focus-within {
+  border-color: var(--checkout-primary);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(22, 119, 184, 0.12);
+}
+
+.checkout-cash-below-method input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--checkout-text);
+
+  font: inherit;
+  font-size: 1rem;
+}
+
+.checkout-payment-card
+.checkout-cash-help {
+  margin-top: 10px;
+}
+
+
+/* ==========================================
+   PAYMENT MODAL VERSION
+========================================== */
+
+.checkout-payment-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(
+      15,
+      23,
+      42,
+      0.48
+    );
+
+  backdrop-filter:
+    blur(2px);
+}
+
+
+.checkout-payment-modal {
+  width: min(
+    760px,
+    calc(100vw - 48px)
+  );
+
+  max-height:
+    calc(100vh - 48px);
+
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 28px 70px
+    rgba(
+      15,
+      23,
+      42,
+      0.34
+    );
+}
+
+
+/* ==========================================
+   MODAL HEADER
+========================================== */
+
+.checkout-payment-modal-header {
+  flex-shrink: 0;
+
+  min-height: 72px;
+
+  padding:
+    16px
+    18px
+    14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border-bottom:
+    1px solid
+    var(--checkout-border);
+
+  background: #ffffff;
+}
+
+
+.checkout-payment-modal-header h2 {
+  margin: 0;
+
+  color:
+    var(--checkout-text);
+
+  font-size: 1.08rem;
+}
+
+
+.checkout-payment-modal-header p {
+  margin:
+    4px
+    0
+    0;
+
+  color:
+    var(--checkout-muted);
+
+  font-size: 0.78rem;
+}
+
+
+/* ==========================================
+   MODAL CLOSE
+========================================== */
+
+.checkout-payment-modal-close {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    #cfd7df;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+.checkout-payment-modal-close:hover {
+  background: #f1f5f9;
+
+  color: #0f172a;
+}
+
+
+/* ==========================================
+   MODAL BODY
+========================================== */
+
+.checkout-payment-modal-body {
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  padding: 18px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: #f8fafc;
+}
+
+
+.checkout-payment-modal
+.checkout-payment-card {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+
+/* ==========================================
+   PAYMENT METHOD
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-methods-three {
+  width: 100%;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+}
+
+
+.checkout-payment-modal
+.checkout-payment-methods
+button {
+  min-height: 44px;
+}
+
+
+/* ==========================================
+   CASH
+========================================== */
+
+.checkout-payment-modal
+.checkout-cash-below-method {
+  margin-top: 14px;
+}
+
+
+.checkout-payment-modal
+.checkout-quick-cash-one-row {
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+}
+
+
+/* ==========================================
+   M-PESA / SPLIT
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-section {
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+
+.checkout-payment-modal
+.checkout-payment-field > div {
+  min-height: 46px;
+}
+
+
+.checkout-payment-modal
+.checkout-mpesa-card {
+  margin-top: 8px;
+
+  padding: 13px;
+}
+
+
+/* ==========================================
+   PAYMENT ACTIONS
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-actions {
+  margin-top: 14px;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    130px;
+
+  gap: 9px;
+}
+
+
+.checkout-payment-modal
+.checkout-complete-button {
+  min-height: 48px;
+}
+
+
+.checkout-payment-modal
+.checkout-cancel-button {
+  min-height: 48px;
+
+  margin-top: 0;
+}
+
+
+/* ==========================================
+   MODAL SCROLLBAR
+========================================== */
+
+.checkout-payment-modal-body::-webkit-scrollbar {
+  width: 9px;
+}
+
+
+.checkout-payment-modal-body::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+
+.checkout-payment-modal-body::-webkit-scrollbar-thumb {
+  border:
+    2px solid
+    #f8fafc;
+
+  border-radius: 999px;
+
+  background: #cbd5df;
+}
+
+
+.checkout-payment-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #aebbc8;
+}
+
+
+/* ==========================================
+   SMALLER SCREENS
+========================================== */
+
+@media (max-width: 760px) {
+
+  .checkout-payment-modal-backdrop {
+    padding: 12px;
+  }
+
+
+  .checkout-payment-modal {
+    width:
+      calc(
+        100vw - 24px
+      );
+
+    max-height:
+      calc(
+        100vh - 24px
+      );
+  }
+
+
+  .checkout-payment-modal-body {
+    padding: 12px;
+  }
+
+
+  .checkout-payment-modal
+  .checkout-payment-card {
+    padding: 14px;
+  }
+
+
+  .checkout-payment-modal
+  .checkout-payment-actions {
+    grid-template-columns: 1fr;
+  }
+
+
+  .checkout-payment-modal
+  .checkout-quick-cash-one-row {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* ==========================================
+   PAYMENT MODAL FORM WIDTH REFINEMENT
+   Keep payment controls comfortably sized.
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-card {
+  width: min(680px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Payment method buttons can remain wide. */
+.checkout-payment-modal
+.checkout-payment-layout-simple {
+  width: 100%;
+}
+
+
+/* CASH FIELD */
+
+.checkout-payment-modal
+.checkout-cash-below-method {
+  width: min(420px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.checkout-payment-modal
+.checkout-cash-help {
+  width: min(420px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* QUICK CASH */
+
+.checkout-payment-modal
+.checkout-quick-cash-one-row {
+  width: min(560px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* CASH BALANCE */
+
+.checkout-payment-modal
+.checkout-balance-card,
+.checkout-payment-modal
+.checkout-balance-wide {
+  width: min(560px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================
+   M-PESA
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-section {
+  width: min(560px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.checkout-payment-modal
+.checkout-payment-section
+> .checkout-payment-field {
+  width: min(420px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.checkout-payment-modal
+.checkout-payment-section
+> .checkout-split-exact-button {
+  width: min(420px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* M-Pesa status card should be wider than inputs
+   but not stretch across the modal. */
+
+.checkout-payment-modal
+.checkout-mpesa-card {
+  width: min(520px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================
+   SPLIT
+========================================== */
+
+.checkout-payment-modal
+.checkout-split-payment {
+  width: min(560px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+.checkout-payment-modal
+.checkout-split-payment
+.checkout-payment-field {
+  width: 100%;
+}
+
+
+/* ==========================================
+   PAYMENT PROGRESS
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-progress {
+  width: min(520px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================
+   EMPTY SALE QUICK ACTIONS
+========================================== */
+
+.checkout-empty-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  width: min(620px, 92%);
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+.checkout-empty-quick-actions button {
+  min-height: 42px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #d7dee8;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.checkout-empty-quick-actions button:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #94a3b8;
+
+  transform: translateY(-1px);
+}
+
+.checkout-empty-quick-actions button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.checkout-empty-quick-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   FINAL ACTIONS
+========================================== */
+
+.checkout-payment-modal
+.checkout-payment-actions {
+  width: min(560px, 100%);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================
+   SMALL SCREEN
+========================================== */
+
+@media (max-width: 620px) {
+
+  .checkout-payment-modal
+  .checkout-payment-card {
+    width: 100%;
+  }
+
+
+  .checkout-payment-modal
+  .checkout-cash-below-method,
+  .checkout-payment-modal
+  .checkout-cash-help,
+  .checkout-payment-modal
+  .checkout-payment-section,
+  .checkout-payment-modal
+  .checkout-quick-cash-one-row,
+  .checkout-payment-modal
+  .checkout-balance-card,
+  .checkout-payment-modal
+  .checkout-balance-wide,
+  .checkout-payment-modal
+  .checkout-payment-progress,
+  .checkout-payment-modal
+  .checkout-payment-actions {
+    width: 100%;
+  }
+
+
+  .checkout-payment-modal
+  .checkout-split-payment {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.checkout-hold-sale-button {
+  font-weight: 700;
+  color: #92400e;
+}
+
+.checkout-hold-sale-button:hover {
+  background: #6ca580;
+  color: #78350f;
+}
+
+/* ==========================================
+   HELD SALES DISPLAY
+========================================== */
+
+.held-sales-display {
+  width: min(900px, 82%);
+
+  margin: 28px auto;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(15, 23, 42, 0.06);
+}
+
+
+.held-sales-display-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.held-sales-display-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+
+.held-sales-display-header p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.82rem;
+}
+
+
+.held-sales-display-header button {
+  min-height: 38px;
+
+  padding: 0 15px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.held-sales-display-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  padding-top: 16px;
+}
+
+
+.held-sale-display-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    120px
+    auto;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+
+.held-sale-display-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.held-sale-display-info strong {
+  color: #0f172a;
+}
+
+
+.held-sale-display-info span,
+.held-sale-display-info small {
+  color: #64748b;
+}
+
+
+.held-sale-display-total {
+  text-align: right;
+
+  color: #0f172a;
+
+  font-size: 1rem;
+}
+
+
+.held-sale-display-actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+
+.held-sale-resume-button,
+.held-sale-remove-button {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.held-sale-resume-button {
+  border: 0;
+
+  background: #2563eb;
+
+  color: #ffffff;
+}
+
+
+.held-sale-remove-button {
+  border: 1px solid #fecaca;
+
+  background: #ffffff;
+
+  color: #b91c1c;
+}
+
+
+.held-sales-display-empty {
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+}

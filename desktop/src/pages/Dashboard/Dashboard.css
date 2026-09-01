@@ -1,0 +1,1666 @@
+/* ===========================================
+   DASHBOARD PAGE
+=========================================== */
+
+.dashboard-page {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: #f3f6fa;
+  color: #172033;
+}
+
+
+/* ===========================================
+   SIDEBAR
+=========================================== */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 26px 18px;
+
+  overflow: hidden;
+
+  background: #10233f;
+  color: white;
+}
+
+
+.sidebar-brand {
+  flex-shrink: 0;
+
+  padding: 0 10px 25px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.12);
+}
+
+
+.sidebar-brand h2 {
+  margin: 0;
+
+  font-size: 25px;
+}
+
+
+.sidebar-brand p {
+  margin: 5px 0 0;
+
+  color: #b8c5d8;
+
+  font-size: 13px;
+}
+
+
+/* ===========================================
+   SIDEBAR NAVIGATION
+=========================================== */
+
+.sidebar-nav {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 25px;
+
+  overflow-y: auto;
+}
+
+
+.nav-button {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #dce5f1;
+
+  text-align: left;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+
+.nav-button:hover,
+.nav-button.active {
+  background: #1d4f91;
+  color: white;
+}
+
+
+/* ===========================================
+   LOGOUT
+=========================================== */
+
+.logout-button {
+  flex-shrink: 0;
+
+  padding: 13px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.25);
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+
+.logout-button:hover {
+  background: #c62828;
+  border-color: #c62828;
+}
+
+
+/* ===========================================
+   DASHBOARD MAIN
+=========================================== */
+
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px 28px 14px;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   DASHBOARD HEADER
+=========================================== */
+
+.dashboard-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+
+.dashboard-header h1 {
+  margin: 0;
+
+  font-size: 24px;
+}
+
+
+.dashboard-header p {
+  margin: 4px 0 0;
+
+  color: #69758a;
+}
+
+
+.header-status {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border: 1px solid #d8e1ec;
+  border-radius: 20px;
+
+  background: white;
+
+  color: #475569;
+
+  font-size: 14px;
+}
+
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #2e9d57;
+}
+
+
+/* ===========================================
+   ERROR MESSAGE
+=========================================== */
+
+.dashboard-error {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 10px;
+  padding: 9px 12px;
+
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 0.78rem;
+}
+
+
+.dashboard-error button {
+  padding: 4px 9px;
+
+  border: 1px solid #fca5a5;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #991b1b;
+
+  cursor: pointer;
+}
+
+
+/* ===========================================
+   SUMMARY GRID
+=========================================== */
+
+.summary-grid {
+  flex-shrink: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(180px, 1fr)
+    );
+
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+
+.summary-card {
+  padding: 14px 16px;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow:
+    0 4px 14px
+    rgba(19, 33, 54, 0.05);
+}
+
+
+.summary-card p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-weight: 600;
+}
+
+
+.summary-card h2 {
+  margin: 7px 0 3px;
+
+  color: #174f91;
+
+  font-size: 24px;
+}
+
+
+.summary-card span {
+  color: #8a96a8;
+
+  font-size: 13px;
+}
+
+
+/* ===========================================
+   DASHBOARD PANEL
+=========================================== */
+
+.dashboard-panel {
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow:
+    0 4px 14px
+    rgba(19, 33, 54, 0.04);
+}
+
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-bottom: 8px;
+}
+
+
+.panel-heading h2 {
+  margin: 0;
+
+  font-size: 19px;
+}
+
+
+.panel-heading p {
+  margin: 4px 0 0;
+
+  color: #7b8799;
+
+  font-size: 14px;
+}
+
+
+/* ===========================================
+   REFRESH BUTTON
+=========================================== */
+
+.dashboard-refresh-button {
+  padding: 5px 10px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.dashboard-refresh-button:hover {
+  background: #f1f5f9;
+}
+
+
+.dashboard-refresh-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* ===========================================
+   QUICK ACTIONS PANEL
+=========================================== */
+
+.dashboard-panel:has(.quick-actions) {
+  flex-shrink: 0;
+
+  padding: 10px 14px;
+}
+
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 6px;
+}
+
+
+.action-button {
+  min-width: 140px;
+
+  padding: 9px 14px;
+
+  border: 1px solid #cfd9e6;
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #243248;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.action-button:hover {
+  background: #edf3fa;
+}
+
+
+.action-button.primary {
+  border-color: #167548;
+
+  background: #167548;
+
+  color: white;
+}
+
+
+.action-button.primary:hover {
+  background: #105f39;
+}
+
+
+/* ===========================================
+   LOWER DASHBOARD GRID
+=========================================== */
+
+.dashboard-lower-grid {
+  flex: 1;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.5fr)
+    minmax(0, 1fr);
+
+  gap: 18px;
+
+  margin-top: 10px;
+
+  overflow: hidden;
+}
+
+
+.dashboard-lower-grid > .dashboard-panel {
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   EMPTY STATE
+=========================================== */
+
+.empty-state {
+  display: flex;
+
+  min-height: 120px;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #8a96a8;
+
+  text-align: center;
+}
+
+
+/* ===========================================
+   RECENT SALES TABLE WRAPPER
+=========================================== */
+
+.recent-sales-table-wrapper {
+  width: 100%;
+  max-height: 100%;
+
+  overflow: auto;
+
+  margin-top: 10px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+
+  background: #ffffff;
+}
+
+
+/* ===========================================
+   RECENT SALES TABLE
+=========================================== */
+
+.recent-sales-table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+
+  font-size: 0.8rem;
+}
+
+
+/* ===========================================
+   RECENT SALES HEADER
+=========================================== */
+
+.recent-sales-table thead {
+  position: sticky;
+  top: 0;
+
+  z-index: 2;
+
+  background: #e9eef3;
+}
+
+
+.recent-sales-table th {
+  height: 30px;
+
+  padding: 4px 10px;
+
+  text-align: left;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #94a3b8;
+}
+
+
+.recent-sales-table th:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   RECENT SALES CELLS
+=========================================== */
+
+.recent-sales-table td {
+  height: 27px;
+
+  padding: 3px 10px;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #dbe1e8;
+  border-bottom: 1px solid #dbe1e8;
+}
+
+
+.recent-sales-table td:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   RECENT SALES ALTERNATING ROWS
+=========================================== */
+
+.recent-sales-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+
+.recent-sales-table tbody tr:nth-child(even) {
+  background: #f3f6f9;
+}
+
+
+/* ===========================================
+   RECENT SALES HOVER
+=========================================== */
+
+.recent-sales-table tbody tr:hover {
+  background: #dbeafe;
+}
+
+
+/* ===========================================
+   SALE NUMBER
+=========================================== */
+
+.recent-sale-number {
+  max-width: 260px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  font-weight: 500;
+}
+
+
+/* ===========================================
+   SALE AMOUNT
+=========================================== */
+
+.recent-sale-amount {
+  font-weight: 600;
+}
+
+
+/* ===========================================
+   PRINT RECEIPT BUTTON
+=========================================== */
+
+.print-receipt-button {
+  height: 22px;
+
+  padding: 1px 8px;
+
+  border: 1px solid #94a3b8;
+  border-radius: 3px;
+
+  background: #f8fafc;
+
+  color: #334155;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.print-receipt-button:hover {
+  background: #e2e8f0;
+}
+
+
+.recent-sales-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT TABLE WRAPPER
+=========================================== */
+
+.inventory-alert-table-wrapper {
+  width: 100%;
+
+  /*
+   Header 30px
+   + 6 rows × 27px
+  */
+  max-height: 192px;
+
+  overflow-y: auto;
+  overflow-x: auto;
+
+  margin-top: 10px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+
+  background: #ffffff;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT TABLE
+=========================================== */
+
+.inventory-alert-table {
+  width: 100%;
+  min-width: 300px;
+
+  border-collapse: collapse;
+
+  font-size: 0.8rem;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT HEADER
+=========================================== */
+
+.inventory-alert-table thead {
+  position: sticky;
+  top: 0;
+
+  z-index: 2;
+
+  background: #e9eef3;
+}
+
+
+.inventory-alert-table th {
+  height: 30px;
+
+  padding: 4px 10px;
+
+  text-align: left;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #94a3b8;
+}
+
+
+.inventory-alert-table th:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT CELLS
+=========================================== */
+
+.inventory-alert-table td {
+  height: 27px;
+
+  padding: 3px 10px;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #dbe1e8;
+  border-bottom: 1px solid #dbe1e8;
+}
+
+
+.inventory-alert-table td:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT ALTERNATING ROWS
+=========================================== */
+
+.inventory-alert-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+
+.inventory-alert-table tbody tr:nth-child(even) {
+  background: #f3f6f9;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT HOVER
+=========================================== */
+
+.inventory-alert-table tbody tr:hover {
+  background: #dbeafe;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT PRODUCT
+=========================================== */
+
+.inventory-alert-product {
+  max-width: 210px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  font-weight: 500;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT QUANTITY
+=========================================== */
+
+.inventory-alert-quantity {
+  font-weight: 700;
+}
+
+
+/* ===========================================
+   INVENTORY ALERT LAST ROW
+=========================================== */
+
+.inventory-alert-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ===========================================
+   DASHBOARD WORKSPACE
+=========================================== */
+
+.dashboard-workspace {
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   WORKSPACE HEADER
+=========================================== */
+
+.dashboard-workspace-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 10px 14px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+}
+
+
+.dashboard-workspace-header h2 {
+  margin: 0;
+
+  font-size: 1rem;
+
+  color: #0f172a;
+}
+
+
+.dashboard-workspace-header p {
+  margin: 3px 0 0;
+
+  font-size: 0.78rem;
+
+  color: #64748b;
+}
+
+
+/* ===========================================
+   WORKSPACE CLOSE BUTTON
+=========================================== */
+.dashboard-workspace-close {
+  min-width: 78px;
+
+  padding: 8px 14px;
+
+  border: 1px solid #64748b;
+  border-radius: 6px;
+
+  background: #334155;
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 6px
+    rgba(15, 23, 42, 0.16);
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.dashboard-workspace-close:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+
+  transform: translateY(-1px);
+}
+
+.dashboard-workspace-close:active {
+  transform: translateY(0);
+}
+
+
+/* ===========================================
+   WORKSPACE BODY
+=========================================== */
+
+.dashboard-workspace-body {
+  flex: 1;
+  min-height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   RESPONSIVE - TABLET
+=========================================== */
+
+@media (max-width: 1050px) {
+
+  .summary-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(180px, 1fr)
+      );
+  }
+
+
+  .dashboard-main {
+    overflow-y: auto;
+  }
+
+
+  .dashboard-lower-grid {
+    grid-template-columns: 1fr;
+
+    overflow: visible;
+  }
+
+
+  .dashboard-workspace {
+    min-height: 420px;
+  }
+
+}
+
+
+/* ===========================================
+   RESPONSIVE - SMALL SCREEN
+=========================================== */
+
+@media (max-width: 750px) {
+
+  .sidebar {
+    width: 190px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .dashboard-main {
+    padding: 18px;
+  }
+
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .quick-actions {
+    gap: 8px;
+  }
+
+
+  .action-button {
+    min-width: 120px;
+  }
+
+}
+
+/* ===========================================
+   INVENTORY WORKSPACE TOOLBAR
+=========================================== */
+
+.inventory-workspace-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.inventory-workspace-toolbar input {
+  width: min(420px, 100%);
+
+  height: 34px;
+
+  padding: 0 10px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.inventory-workspace-toolbar input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.inventory-workspace-count {
+  color: #64748b;
+
+  font-size: 0.76rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* ===========================================
+   INVENTORY WORKSPACE TABLE WRAPPER
+=========================================== */
+
+.inventory-workspace-table-wrapper {
+  width: 100%;
+  height: calc(100% - 44px);
+
+  overflow: auto;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+
+  background: #ffffff;
+}
+
+
+/* ===========================================
+   INVENTORY WORKSPACE TABLE
+=========================================== */
+
+.inventory-workspace-table {
+  width: 100%;
+  min-width: 820px;
+
+  border-collapse: collapse;
+
+  font-size: 0.8rem;
+}
+
+
+/* HEADER */
+
+.inventory-workspace-table thead {
+  position: sticky;
+  top: 0;
+
+  z-index: 2;
+
+  background: #e9eef3;
+}
+
+.inventory-workspace-table th {
+  height: 30px;
+
+  padding: 4px 10px;
+
+  text-align: left;
+
+  color: #334155;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #94a3b8;
+}
+
+
+/* CELLS */
+
+.inventory-workspace-table td {
+  height: 27px;
+
+  padding: 3px 10px;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #dbe1e8;
+  border-bottom: 1px solid #dbe1e8;
+}
+
+
+/* ALTERNATING ROWS */
+
+.inventory-workspace-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.inventory-workspace-table tbody tr:nth-child(even) {
+  background: #f3f6f9;
+}
+
+
+/* HOVER */
+
+.inventory-workspace-table tbody tr:hover {
+  background: #dbeafe;
+}
+
+
+/* PRODUCT */
+
+.inventory-workspace-product {
+  max-width: 260px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-weight: 500;
+}
+
+
+/* QUANTITY */
+
+.inventory-workspace-qty {
+  font-weight: 700;
+}
+
+
+/* STATUS */
+
+.inventory-workspace-status {
+  display: inline-flex;
+
+  padding: 1px 7px;
+
+  border-radius: 3px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.inventory-workspace-status.ok {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.inventory-workspace-status.low {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.inventory-workspace-status.out {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ===========================================
+   EMBEDDED PRODUCTS
+=========================================== */
+
+.dashboard-workspace-products {
+  flex: 1;
+  min-height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.dashboard-workspace-products
+.products-page-embedded {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: transparent;
+
+  overflow: hidden;
+}
+
+.dashboard-workspace-products
+.products-page-embedded
+.products-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 14px;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   EMBEDDED TOOLBAR
+=========================================== */
+
+.products-page-embedded
+.products-toolbar {
+  flex-shrink: 0;
+
+  margin-top: 0;
+}
+
+.products-toolbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* ===========================================
+   EMBEDDED PRODUCTS TABLE CARD
+=========================================== */
+
+.products-page-embedded
+.products-table-card {
+  flex: 1;
+  min-height: 0;
+
+  margin-top: 10px;
+
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   EMBEDDED PRODUCTS TABLE WRAPPER
+   THIS AREA SCROLLS
+=========================================== */
+
+.products-page-embedded
+.products-table-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+
+  background: #ffffff;
+}
+
+
+/* ===========================================
+   EMBEDDED PRODUCTS TABLE
+=========================================== */
+
+.products-page-embedded
+.products-table {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+
+  font-size: 0.8rem;
+}
+
+
+/* ===========================================
+   EMBEDDED TABLE HEADER
+=========================================== */
+
+.products-page-embedded
+.products-table thead {
+  position: sticky;
+  top: 0;
+
+  z-index: 5;
+
+  background: #e9eef3;
+}
+
+.products-page-embedded
+.products-table th {
+  height: 30px;
+
+  padding: 4px 10px;
+
+  text-align: left;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #94a3b8;
+
+  background: #e9eef3;
+}
+
+.products-page-embedded
+.products-table th:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   EMBEDDED TABLE CELLS
+=========================================== */
+
+.products-page-embedded
+.products-table td {
+  height: 27px;
+
+  padding: 3px 10px;
+
+  color: #334155;
+
+  white-space: nowrap;
+
+  border-right: 1px solid #dbe1e8;
+  border-bottom: 1px solid #dbe1e8;
+
+  vertical-align: middle;
+}
+
+.products-page-embedded
+.products-table td:last-child {
+  border-right: 0;
+}
+
+
+/* ===========================================
+   EMBEDDED ROW COLORS
+=========================================== */
+
+.products-page-embedded
+.products-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.products-page-embedded
+.products-table tbody tr:nth-child(even) {
+  background: #f3f6f9;
+}
+
+.products-page-embedded
+.products-table tbody tr:hover {
+  background: #dbeafe;
+}
+
+.products-page-embedded
+.products-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* ===========================================
+   EMBEDDED SELECTED ACTION ROW
+=========================================== */
+
+.products-page-embedded
+.products-table
+.product-row.action-row-selected {
+  background: #eef2f6 !important;
+}
+
+.products-page-embedded
+.products-table
+.product-row.action-row-selected:hover {
+  background: #eef2f6 !important;
+}
+
+
+/* ===========================================
+   EMBEDDED PRODUCT NAME
+=========================================== */
+
+.products-page-embedded
+.product-name-block {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1px;
+
+  max-width: 220px;
+}
+
+.products-page-embedded
+.product-name-block strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  color: #1e293b;
+}
+
+.products-page-embedded
+.product-name-block span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 0.68rem;
+
+  color: #64748b;
+}
+
+
+/* ===========================================
+   EMBEDDED PRICE
+=========================================== */
+
+.products-page-embedded
+.product-price {
+  display: block;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.products-page-embedded
+.product-cost {
+  display: block;
+
+  margin-top: 1px;
+
+  font-size: 0.66rem;
+
+  color: #64748b;
+}
+
+
+/* ===========================================
+   EMBEDDED INVENTORY
+=========================================== */
+
+.products-page-embedded
+.inventory-cell {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1px;
+}
+
+.products-page-embedded
+.inventory-cell strong {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.products-page-embedded
+.inventory-cell span {
+  font-size: 0.66rem;
+
+  color: #64748b;
+}
+
+
+/* ===========================================
+   EMBEDDED STATUS
+=========================================== */
+
+.products-page-embedded
+.product-status {
+  min-height: 20px;
+
+  padding: 1px 7px;
+
+  border-radius: 3px;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+
+/* ===========================================
+   EMBEDDED ACTION BUTTON
+=========================================== */
+
+.products-page-embedded
+.product-actions-trigger {
+  width: 24px;
+  height: 22px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+
+  background: #f8fafc;
+
+  font-size: 0.9rem;
+
+  cursor: pointer;
+}
+
+.products-page-embedded
+.product-actions-trigger:hover {
+  background: #e2e8f0;
+}
+
+
+/* ===========================================
+   COMPACT DASHBOARD TOP AREA
+=========================================== */
+
+.dashboard-main {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.dashboard-header {
+  margin-bottom: 10px;
+}
+
+.dashboard-header h1 {
+  font-size: 27px;
+}
+
+.dashboard-header p {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.summary-grid {
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.summary-card {
+  padding: 14px 16px;
+}
+
+.summary-card h2 {
+  margin: 7px 0 3px;
+  font-size: 24px;
+}
+
+.summary-card span {
+  font-size: 12px;
+}
+
+.dashboard-panel:has(.quick-actions) {
+  padding: 10px 14px;
+}
+
+.dashboard-panel:has(.quick-actions)
+.panel-heading {
+  margin-bottom: 4px;
+}
+
+.dashboard-panel:has(.quick-actions)
+.panel-heading h2 {
+  font-size: 17px;
+}
+
+.dashboard-panel:has(.quick-actions)
+.panel-heading p {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.quick-actions {
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.action-button {
+  padding: 9px 14px;
+}
+
+.dashboard-workspace,
+.dashboard-lower-grid {
+  margin-top: 10px;
+}
+
+/* ===========================================
+   FINANCIAL REPORT WORKSPACE
+=========================================== */
+
+.dashboard-financial-workspace {
+  position: relative;
+
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+.dashboard-financial-workspace
+.financial-report-page {
+  height: 100%;
+
+  min-height: 0;
+}

@@ -1,0 +1,145 @@
+.receipt-preference-card {
+  padding: 20px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.receipt-preference-header {
+  margin-bottom: 16px;
+}
+
+.receipt-preference-header h3 {
+  margin: 0;
+
+  font-size: 1rem;
+  color: #111827;
+}
+
+.receipt-preference-header p {
+  margin: 5px 0 0;
+
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.receipt-preference-options {
+  display: grid;
+  gap: 8px;
+}
+
+.receipt-preference-option {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  text-align: left;
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.receipt-preference-option:hover {
+  background: #f8fafc;
+}
+
+.receipt-preference-option.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.receipt-preference-option:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================
+   RADIO
+========================================== */
+
+.receipt-radio {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.receipt-preference-option.active
+.receipt-radio {
+  color: #2563eb;
+}
+
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.receipt-preference-option > span:last-child {
+  display: grid;
+  gap: 2px;
+}
+
+.receipt-preference-option strong {
+  font-size: 0.84rem;
+  color: #111827;
+}
+
+.receipt-preference-option small {
+  font-size: 0.72rem;
+  line-height: 1.35;
+
+  color: #6b7280;
+}
+
+.receipt-preference-option.active strong {
+  color: #1d4ed8;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.receipt-preference-loading {
+  padding: 12px 0;
+
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.receipt-preference-success {
+  margin-top: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  color: #15803d;
+}
+
+.receipt-preference-error {
+  margin-top: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  color: #b91c1c;
+}

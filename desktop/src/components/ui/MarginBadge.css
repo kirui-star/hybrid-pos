@@ -1,0 +1,87 @@
+.margin-badge {
+    display: inline-flex;
+    flex-direction: column;
+   margin-left: auto;
+    align-items: flex-end;
+    gap: 2px;
+
+    width: fit-content;
+    min-width: unset;
+    padding: 8px 12px;
+
+    background: #f8fafc;
+    border: 1px solid rgba(229,231,235,.8);
+    border-radius: 10px;
+   
+}
+
+.margin-badge-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.margin-badge-value strong {
+    color: #111827;
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.margin-badge-indicator {
+    width: 11px;
+    height: 11px;
+
+    flex: 0 0 11px;
+
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.margin-badge-label {
+    padding-left: 19px;
+
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+/* Excellent: above 25% */
+
+.margin-badge--excellent {
+    color: #16a34a;
+}
+
+.margin-badge--excellent .margin-badge-label {
+    color: #15803d;
+}
+
+/* Healthy: 12% through 25% */
+
+.margin-badge--healthy {
+    color: #f59e0b;
+}
+
+.margin-badge--healthy .margin-badge-label {
+    color: #b45309;
+}
+
+/* Low: below 12% */
+
+.margin-badge--low {
+    color: #dc2626;
+}
+
+.margin-badge--low .margin-badge-label {
+    color: #b91c1c;
+}
+
+/* Unknown */
+
+.margin-badge--unknown {
+    color: #9ca3af;
+}
+
+.margin-badge--unknown .margin-badge-label {
+    color: #6b7280;
+}

@@ -1,0 +1,860 @@
+/* =========================================================
+   ADD / EDIT PRODUCT MODAL
+   Hybrid POS
+========================================================= */
+
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.product-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.62);
+
+  backdrop-filter: blur(3px);
+}
+
+
+/* =========================================================
+   MODAL CONTAINER
+========================================================= */
+
+.product-modal {
+  width: min(700px, 96vw);
+  max-height: calc(100vh - 48px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(15, 23, 42, 0.34);
+}
+
+
+/* =========================================================
+   FORM CONTAINER
+========================================================= */
+
+.product-modal form {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  min-height: 0;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.product-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  flex-shrink: 0;
+
+  padding: 21px 26px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #dbe3ec;
+}
+
+
+.product-modal-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 1.35rem;
+
+  font-weight: 750;
+
+  letter-spacing: -0.015em;
+}
+
+
+.product-modal-header p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.82rem;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.product-modal-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  background: #f8fafc;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 7px;
+
+  color: #475569;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.product-modal-close:hover {
+  background: #e2e8f0;
+
+  border-color: #cbd5e1;
+
+  color: #0f172a;
+}
+
+
+.product-modal-close:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   FORM GRID / SCROLLABLE BODY
+========================================================= */
+
+.product-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 22px 26px;
+
+  overflow-y: auto;
+
+  background: #f4f7fb;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+========================================================= */
+
+.product-form-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.product-form-field-wide {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FIELD LABELS
+========================================================= */
+
+.product-form-field > span,
+.product-checkbox-field > span {
+  color: #334155;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   STANDARD INPUTS
+========================================================= */
+
+.product-form-field input,
+.product-form-field select,
+.product-form-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  color: #0f172a;
+
+  background: #ffffff;
+
+  border: 1px solid #b8c4d1;
+
+  border-radius: 7px;
+
+  font: inherit;
+
+  font-size: 0.84rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.product-form-field input,
+.product-form-field select {
+  min-height: 43px;
+
+  padding: 0 12px;
+}
+
+
+.product-form-field textarea {
+  min-height: 86px;
+
+  padding: 11px 12px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PLACEHOLDERS
+========================================================= */
+
+.product-form-field input::placeholder,
+.product-form-field textarea::placeholder {
+  color: #94a3b8;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   INPUT HOVER
+========================================================= */
+
+.product-form-field input:hover,
+.product-form-field select:hover,
+.product-form-field textarea:hover {
+  border-color: #94a3b8;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.product-form-field input:focus,
+.product-form-field select:focus,
+.product-form-field textarea:focus {
+  background: #ffffff;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(37, 99, 235, 0.13);
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.product-form-field select {
+  color: #0f172a;
+
+  background-color: #ffffff;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   DISABLED INPUTS
+========================================================= */
+
+.product-form-field input:disabled,
+.product-form-field select:disabled,
+.product-form-field textarea:disabled {
+  background: #f1f5f9;
+
+  color: #64748b;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MONEY / PERCENTAGE INPUT CONTAINERS
+========================================================= */
+
+.money-input,
+.percentage-input {
+  display: flex;
+  align-items: center;
+
+  min-height: 43px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #b8c4d1;
+
+  border-radius: 7px;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.money-input:hover,
+.percentage-input:hover {
+  border-color: #94a3b8;
+}
+
+
+.money-input:focus-within,
+.percentage-input:focus-within {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(37, 99, 235, 0.13);
+}
+
+
+/* =========================================================
+   MONEY / PERCENTAGE PREFIX
+========================================================= */
+
+.money-input > span,
+.percentage-input > span {
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 42px;
+
+  padding: 0 10px;
+
+  background: #e9eef5;
+
+  border-right: 1px solid #dbe3ec;
+
+  color: #334155;
+
+  font-size: 0.75rem;
+
+  font-weight: 750;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MONEY / PERCENTAGE INNER INPUT
+========================================================= */
+
+.money-input input,
+.percentage-input input {
+  flex: 1;
+
+  width: 100%;
+
+  min-width: 0;
+
+  min-height: 41px;
+
+  padding: 0 11px;
+
+  color: #0f172a;
+
+  background: #ffffff;
+
+  border: none !important;
+
+  border-radius: 0;
+
+  box-shadow: none !important;
+
+  outline: none;
+
+  font: inherit;
+}
+
+
+.money-input input:focus,
+.percentage-input input:focus {
+  border: none !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   TAX STATUS SECTION
+========================================================= */
+
+.product-tax-options {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   TAX OPTION
+========================================================= */
+
+.product-tax-option {
+  min-height: 62px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 10px 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #b8c4d1;
+
+  border-radius: 8px;
+
+  color: #334155;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  text-align: left;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.product-tax-option:hover {
+  background: #f8fafc;
+
+  border-color: #94a3b8;
+}
+
+
+/* =========================================================
+   SELECTED TAX OPTION
+========================================================= */
+
+.product-tax-option.active {
+  background: #eff6ff;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    inset 0 0 0 1px
+    #2563eb;
+}
+
+
+.product-tax-option strong {
+  color: #0f172a;
+
+  font-size: 0.81rem;
+
+  font-weight: 750;
+}
+
+
+.product-tax-option small {
+  margin-top: 3px;
+
+  color: #64748b;
+
+  font-size: 0.7rem;
+
+  font-weight: 500;
+}
+
+
+.product-tax-option.active strong {
+  color: #1d4ed8;
+}
+
+
+.product-tax-option.active small {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   INVENTORY CHECKBOX
+========================================================= */
+
+.product-checkbox-field {
+  display: flex;
+  align-items: center;
+
+  align-self: end;
+
+  gap: 9px;
+
+  min-height: 44px;
+
+  padding: 0 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 7px;
+}
+
+
+.product-checkbox-field input {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  margin: 0;
+
+  accent-color: #2563eb;
+
+  cursor: pointer;
+}
+
+
+.product-checkbox-field > span {
+  color: #334155;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.product-form-error {
+  margin:
+    0 26px 16px;
+
+  padding:
+    11px 13px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 7px;
+
+  color: #b91c1c;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.product-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  padding: 15px 26px;
+
+  background: #ffffff;
+
+  border-top: 1px solid #dbe3ec;
+
+  box-shadow:
+    0 -5px 14px
+    rgba(15, 23, 42, 0.035);
+}
+
+
+/* =========================================================
+   FOOTER BUTTON BASE
+========================================================= */
+
+.primary-product-button,
+.secondary-product-button {
+  min-width: 125px;
+
+  min-height: 41px;
+
+  padding:
+    0 16px;
+
+  border-radius: 7px;
+
+  font: inherit;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.secondary-product-button {
+  color: #334155;
+
+  background: #ffffff;
+
+  border: 1px solid #b8c4d1;
+}
+
+
+.secondary-product-button:hover:not(:disabled) {
+  color: #0f172a;
+
+  background: #f1f5f9;
+
+  border-color: #94a3b8;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-product-button {
+  color: #ffffff;
+
+  background: #2563eb;
+
+  border: 1px solid #2563eb;
+
+  box-shadow:
+    0 2px 5px
+    rgba(37, 99, 235, 0.22);
+}
+
+
+.primary-product-button:hover:not(:disabled) {
+  background: #1d4ed8;
+
+  border-color: #1d4ed8;
+
+  box-shadow:
+    0 3px 8px
+    rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   DISABLED BUTTONS
+========================================================= */
+
+.primary-product-button:disabled,
+.secondary-product-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.product-form-grid::-webkit-scrollbar {
+  width: 9px;
+}
+
+
+.product-form-grid::-webkit-scrollbar-track {
+  background: #e9eef5;
+}
+
+
+.product-form-grid::-webkit-scrollbar-thumb {
+  background: #b8c4d1;
+
+  border: 2px solid #e9eef5;
+
+  border-radius: 999px;
+}
+
+
+.product-form-grid::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .product-modal-backdrop {
+    padding: 12px;
+  }
+
+
+  .product-modal {
+    width: 100%;
+
+    max-height:
+      calc(100vh - 24px);
+
+    border-radius: 11px;
+  }
+
+
+  .product-modal-header {
+    padding: 18px;
+  }
+
+
+  .product-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    padding: 18px;
+  }
+
+
+  .product-form-field-wide {
+    grid-column: auto;
+  }
+
+
+  .product-tax-options {
+    grid-template-columns: 1fr;
+  }
+
+
+  .product-checkbox-field {
+    align-self: stretch;
+  }
+
+
+  .product-form-error {
+    margin:
+      0 18px 14px;
+  }
+
+
+  .product-modal-footer {
+    padding: 14px 18px;
+
+    flex-wrap: wrap;
+  }
+
+
+  .primary-product-button,
+  .secondary-product-button {
+    flex: 1;
+
+    min-width: 120px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL WINDOWS
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .product-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+
+  .primary-product-button,
+  .secondary-product-button {
+    width: 100%;
+  }
+}

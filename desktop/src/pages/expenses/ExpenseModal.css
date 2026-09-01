@@ -1,0 +1,436 @@
+/* ===========================================
+   BACKDROP
+=========================================== */
+
+.expense-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  z-index: 1500;
+}
+
+
+/* ===========================================
+   MODAL
+=========================================== */
+
+.expense-modal {
+  width: min(680px, 95vw);
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  box-shadow:
+    0 20px 55px
+    rgba(15, 23, 42, 0.22);
+
+  overflow: hidden;
+}
+
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.expense-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 22px;
+
+  border-bottom:
+    1px solid #e2e8f0;
+}
+
+
+.expense-modal-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+
+.expense-modal-header p {
+  margin:
+    4px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.82rem;
+}
+
+
+.expense-modal-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 1.35rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+.expense-modal-close:hover {
+  background: #f1f5f9;
+}
+
+
+/* ===========================================
+   FORM
+=========================================== */
+
+.expense-modal-form {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+}
+
+
+.expense-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px 16px;
+
+  padding: 20px 22px 10px;
+}
+
+
+/* ===========================================
+   FIELD
+=========================================== */
+
+.expense-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.expense-field-full {
+  grid-column:
+    1 / -1;
+}
+
+
+.expense-field label {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #334155;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+.expense-field label span {
+  color: #94a3b8;
+
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+
+.expense-field input,
+.expense-field select,
+.expense-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font: inherit;
+
+  font-size: 0.86rem;
+
+  outline: none;
+}
+
+
+.expense-field input,
+.expense-field select {
+  height: 42px;
+
+  padding: 0 11px;
+}
+
+
+.expense-field textarea {
+  min-height: 72px;
+
+  padding: 10px 11px;
+
+  resize: vertical;
+}
+
+
+.expense-field input:focus,
+.expense-field select:focus,
+.expense-field textarea:focus {
+  border-color: #64748b;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(100, 116, 139, 0.12);
+}
+
+
+/* ===========================================
+   AMOUNT
+=========================================== */
+
+.expense-amount-input {
+  display: flex;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+}
+
+
+.expense-amount-input:focus-within {
+  border-color: #64748b;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(100, 116, 139, 0.12);
+}
+
+
+.expense-amount-input span {
+  min-width: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8fafc;
+
+  border-right:
+    1px solid #cbd5e1;
+
+  color: #475569;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+
+.expense-amount-input input {
+  border: 0 !important;
+
+  border-radius: 0;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* ===========================================
+   MESSAGE
+=========================================== */
+
+.expense-message {
+  margin:
+    3px 22px 0;
+
+  padding:
+    9px 11px;
+
+  border-radius: 5px;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+
+.expense-message-error {
+  border:
+    1px solid #fecaca;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+}
+
+
+.expense-message-success {
+  border:
+    1px solid #bbf7d0;
+
+  background: #f0fdf4;
+
+  color: #166534;
+}
+
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.expense-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding:
+    16px 22px 18px;
+
+  border-top:
+    1px solid #e2e8f0;
+
+  margin-top: 14px;
+
+  background: #f8fafc;
+}
+
+
+.expense-secondary-button,
+.expense-primary-button {
+  min-width: 110px;
+
+  height: 40px;
+
+  padding:
+    0 16px;
+
+  border-radius: 6px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.expense-secondary-button {
+  border:
+    1px solid #cbd5e1;
+
+  background: #ffffff;
+
+  color: #334155;
+}
+
+
+.expense-secondary-button:hover {
+  background: #f1f5f9;
+}
+
+
+.expense-primary-button {
+  border:
+    1px solid #0f172a;
+
+  background: #0f172a;
+
+  color: #ffffff;
+}
+
+
+.expense-primary-button:hover {
+  background: #1e293b;
+}
+
+
+.expense-primary-button:disabled,
+.expense-secondary-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (
+  max-width: 620px
+) {
+  .expense-modal-backdrop {
+    padding: 12px;
+  }
+
+
+  .expense-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .expense-field-full {
+    grid-column: auto;
+  }
+
+
+  .expense-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+
+  .expense-secondary-button,
+  .expense-primary-button {
+    width: 100%;
+  }
+}

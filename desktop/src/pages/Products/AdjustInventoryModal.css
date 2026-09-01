@@ -1,0 +1,585 @@
+/* ===========================================
+   BACKDROP
+=========================================== */
+
+.adjust-inventory-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(15, 23, 42, 0.48);
+
+  z-index: 1600;
+}
+
+
+/* ===========================================
+   MODAL
+=========================================== */
+
+.adjust-inventory-modal {
+  width: min(660px, 95vw);
+  max-height: 92vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 24px 60px
+    rgba(15, 23, 42, 0.22);
+}
+
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.adjust-inventory-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding:
+    20px 24px;
+
+  border-bottom:
+    1px solid #e2e8f0;
+
+  flex-shrink: 0;
+}
+
+
+.adjust-inventory-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 1.32rem;
+  font-weight: 750;
+}
+
+
+.adjust-inventory-header p {
+  margin:
+    5px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.88rem;
+}
+
+
+.adjust-inventory-close {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 1.35rem;
+
+  cursor: pointer;
+}
+
+
+.adjust-inventory-close:hover {
+  background: #f1f5f9;
+}
+
+
+.adjust-inventory-close:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* ===========================================
+   BODY
+=========================================== */
+
+.adjust-inventory-body {
+  min-height: 0;
+
+  padding:
+    20px 24px 0;
+
+  overflow-y: auto;
+}
+
+
+/* ===========================================
+   CURRENT INVENTORY CARD
+=========================================== */
+
+.adjust-inventory-current-card {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #dbe3ec;
+
+  border-radius: 9px;
+
+  background: #dbe3ec;
+}
+
+
+.adjust-inventory-current-card > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding:
+    14px 16px;
+
+  background: #f8fafc;
+}
+
+
+.adjust-inventory-current-card span {
+  color: #64748b;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+
+.adjust-inventory-current-card strong {
+  color: #0f172a;
+
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+
+.adjust-inventory-current-value {
+  background:
+    #f1f5f9 !important;
+}
+
+
+/* ===========================================
+   SECTIONS
+=========================================== */
+
+.adjust-inventory-section {
+  margin-top: 18px;
+}
+
+
+.adjust-inventory-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #334155;
+
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+
+/* ===========================================
+   TYPE BUTTONS
+=========================================== */
+
+.adjust-inventory-type-buttons {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+.adjust-inventory-type-button {
+  min-height: 48px;
+
+  padding:
+    8px 12px;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.adjust-inventory-type-button:hover {
+  background: #f8fafc;
+
+  border-color: #94a3b8;
+}
+
+
+.adjust-inventory-type-button.active {
+  border-color: #64748b;
+
+  background: #f1f5f9;
+
+  color: #0f172a;
+
+  box-shadow:
+    inset 0 0 0 1px #64748b;
+}
+
+
+/* ===========================================
+   FIELDS
+=========================================== */
+
+.adjust-inventory-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.adjust-inventory-field > span {
+  color: #334155;
+
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+
+.adjust-inventory-field input,
+.adjust-inventory-field select,
+.adjust-inventory-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #0f172a;
+
+  font: inherit;
+
+  font-size: 0.88rem;
+
+  outline: none;
+}
+
+
+.adjust-inventory-field input,
+.adjust-inventory-field select {
+  height: 44px;
+
+  padding:
+    0 12px;
+}
+
+
+.adjust-inventory-field textarea {
+  min-height: 82px;
+
+  padding:
+    11px 12px;
+
+  resize: vertical;
+}
+
+
+.adjust-inventory-field input:focus,
+.adjust-inventory-field select:focus,
+.adjust-inventory-field textarea:focus {
+  border-color: #64748b;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(100, 116, 139, 0.12);
+}
+
+
+/* ===========================================
+   RESULT CARD
+=========================================== */
+
+.adjust-inventory-result-card {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  margin-top: 18px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #cbd5e1;
+
+  border-radius: 9px;
+
+  background: #cbd5e1;
+}
+
+
+.adjust-inventory-result-card > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  padding:
+    14px 16px;
+
+  background: #ffffff;
+}
+
+
+.adjust-inventory-result-card span {
+  color: #64748b;
+
+  font-size: 0.71rem;
+  font-weight: 600;
+}
+
+
+.adjust-inventory-result-card strong {
+  color: #0f172a;
+
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+
+.adjust-inventory-value-change {
+  background:
+    #f8fafc !important;
+}
+
+
+.adjust-inventory-result-card strong.positive {
+  color: #166534;
+}
+
+
+.adjust-inventory-result-card strong.negative {
+  color: #b91c1c;
+}
+
+
+/* ===========================================
+   INFORMATION
+=========================================== */
+
+.adjust-inventory-info {
+  margin-top: 18px;
+
+  padding:
+    11px 13px;
+
+  border:
+    1px solid #dbe3ec;
+
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+
+/* ===========================================
+   ERROR
+=========================================== */
+
+.adjust-inventory-error {
+  margin-top: 14px;
+
+  padding:
+    10px 12px;
+
+  border:
+    1px solid #fecaca;
+
+  border-radius: 6px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.adjust-inventory-footer {
+  position: sticky;
+  bottom: 0;
+
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin:
+    20px -24px 0;
+
+  padding:
+    16px 24px 18px;
+
+  border-top:
+    1px solid #e2e8f0;
+
+  background: #ffffff;
+}
+
+
+.adjust-inventory-secondary-button,
+.adjust-inventory-primary-button {
+  min-width: 130px;
+  height: 42px;
+
+  padding:
+    0 17px;
+
+  border-radius: 7px;
+
+  font-size: 0.81rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.adjust-inventory-secondary-button {
+  border:
+    1px solid #cbd5e1;
+
+  background: #ffffff;
+
+  color: #334155;
+}
+
+
+.adjust-inventory-secondary-button:hover {
+  background: #f8fafc;
+}
+
+
+.adjust-inventory-primary-button {
+  border:
+    1px solid #0f172a;
+
+  background: #0f172a;
+
+  color: #ffffff;
+}
+
+
+.adjust-inventory-primary-button:hover {
+  background: #1e293b;
+}
+
+
+.adjust-inventory-primary-button:disabled,
+.adjust-inventory-secondary-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (
+  max-width: 700px
+) {
+
+  .adjust-inventory-backdrop {
+    padding: 12px;
+  }
+
+
+  .adjust-inventory-current-card,
+  .adjust-inventory-result-card {
+    grid-template-columns: 1fr;
+  }
+
+
+  .adjust-inventory-type-buttons {
+    grid-template-columns: 1fr;
+  }
+
+
+  .adjust-inventory-footer {
+    flex-direction:
+      column-reverse;
+  }
+
+
+  .adjust-inventory-secondary-button,
+  .adjust-inventory-primary-button {
+    width: 100%;
+  }
+}

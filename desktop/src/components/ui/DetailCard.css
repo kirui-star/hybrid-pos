@@ -1,0 +1,100 @@
+/* ===========================================
+   Detail Card
+=========================================== */
+
+.detail-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 1px 3px rgba(15, 23, 42, 0.05),
+        0 8px 24px rgba(15, 23, 42, 0.04);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.detail-card:hover {
+    border-color: #d1d5db;
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.10);
+
+    transform: translateY(-2px);
+}
+
+/* ===========================================
+   Header
+=========================================== */
+
+.detail-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #eef2f7;
+
+    background: #fbfcfd;
+}
+
+.detail-card-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.detail-card:hover .detail-card-icon {
+    background: #dbeafe;
+    transform: scale(1.05);
+}
+
+.detail-card-icon svg {
+    width: 20px;
+    height: 20px;
+
+    stroke-width: 2;
+}
+
+.detail-card-header h3 {
+    margin: 0;
+
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    color: #111827;
+}
+
+/* ===========================================
+   Body
+=========================================== */
+
+.detail-card-body {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px 22px 12px;
+}
