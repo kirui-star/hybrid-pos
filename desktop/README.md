@@ -1,3 +1,10 @@
+
+
+## Project Summary
+
+HybridPOS is an offline-first retail point-of-sale desktop application built with React, Electron, JavaScript, and SQLite.
+
+It supports product and inventory management, sales processing, purchases, operating expenses, financial reporting, receipt printing, M-Pesa payment workflows, and held transactions.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
