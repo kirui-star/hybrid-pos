@@ -1,23 +1,144 @@
 
-
-## Project Summary
+# HybridPOS
 
 HybridPOS is an offline-first retail point-of-sale desktop application built with React, Electron, JavaScript, and SQLite.
 
-It supports product and inventory management, sales processing, purchases, operating expenses, financial reporting, receipt printing, M-Pesa payment workflows, and held transactions.
-# React + Vite
+It is designed to support day-to-day retail operations while continuing to work locally even when internet connectivity is limited.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project combines sales processing, inventory control, purchases, operating expenses, reporting, receipt printing, M-Pesa payment workflows, and transaction history in one desktop application.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Summary
 
-## React Compiler
+HybridPOS was built to provide a practical retail management system for small and medium-sized stores.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application is designed around real business workflows, including:
 
-## Expanding the ESLint configuration
+- Product and inventory management
+- Barcode-based sales processing
+- Cash payments
+- M-Pesa payments
+- Split payments
+- Held sales
+- Stock receiving
+- Inventory adjustments
+- Purchases
+- Operating expense tracking
+- Transaction history
+- Financial reporting
+- Receipt printing
+- Local offline data storage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technology Stack
+
+### Frontend
+
+- React
+- JavaScript
+- HTML
+- CSS
+- Vite
+
+### Desktop Runtime
+
+- Electron
+
+### Backend
+
+- Electron main process
+- IPC communication
+- Node.js
+
+### Database
+
+- SQLite
+- better-sqlite3
+
+### Integrations
+
+- Safaricom M-Pesa
+- Receipt printing
+
+### Development Tools
+
+- Git
+- GitHub
+- npm
+- ESLint
+
+---
+
+## Application Architecture
+
+HybridPOS uses a layered desktop architecture.
+
+```text
+┌──────────────────────────────┐
+│        React Frontend        │
+│                              │
+│ Dashboard                    │
+│ POS                          │
+│ Products                     │
+│ Reports                      │
+│ Expenses                     │
+│ Transaction History          │
+└───────────────┬──────────────┘
+                │
+                ▼
+┌──────────────────────────────┐
+│      Frontend Services       │
+│                              │
+│ saleService                  │
+│ productService               │
+│ inventoryService             │
+│ mpesaService                 │
+│ dashboardService             │
+│ settingsService              │
+└───────────────┬──────────────┘
+                │
+                ▼
+┌──────────────────────────────┐
+│     Electron Preload API     │
+│          window.api          │
+└───────────────┬──────────────┘
+                │
+                ▼
+┌──────────────────────────────┐
+│         IPC Handlers         │
+│                              │
+│ sales                        │
+│ products                     │
+│ purchases                    │
+│ expenses                     │
+│ reports                      │
+│ transactions                 │
+│ settings                     │
+│ mpesa                        │
+└───────────────┬──────────────┘
+                │
+                ▼
+┌──────────────────────────────┐
+│      Backend Services        │
+│                              │
+│ Financial reporting          │
+│ Transaction history          │
+│ Dashboard calculations       │
+│ M-Pesa integration           │
+└───────────────┬──────────────┘
+                │
+                ▼
+┌──────────────────────────────┐
+│       SQLite Database        │
+│                              │
+│ Products                     │
+│ Inventory                    │
+│ Sales                        │
+│ Payments                     │
+│ Purchases                    │
+│ Expenses                     │
+│ Held Sales                   │
+│ Settings                     │
+└──────────────────────────────┘
