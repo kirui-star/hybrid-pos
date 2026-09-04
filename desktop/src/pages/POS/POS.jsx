@@ -2804,7 +2804,7 @@ const isMpesaPaymentConfirmed =
                         ? ""
                         : "s"
                     }`
-                  : "Scan an item or choose an action below"}
+                  : "Scan an item or search manually"}
               </p>
 
             </div>
