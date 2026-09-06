@@ -23,6 +23,8 @@ release/
 **/.env
 **/.env.*
 
+cloud-api/config/database.php
+
 # Allow safe example environment files
 !.env.example
 !**/.env.example
