@@ -418,6 +418,21 @@
   overflow: hidden;
 }
 
+.checkout-empty-logo {
+  width: 140px;
+  height: 140px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: #edf4f8;
+  overflow: hidden;
+}
+
+.checkout-empty-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .checkout-empty-icon {
   width: 90px;
