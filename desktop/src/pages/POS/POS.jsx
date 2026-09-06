@@ -2718,7 +2718,7 @@ const isMpesaPaymentConfirmed =
           <div>
 
             <h1>
-              HybridPOS
+              Inventra POS
             </h1>
 
            <h3>Kampi Mart </h3> 
