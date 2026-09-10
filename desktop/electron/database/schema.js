@@ -137,8 +137,7 @@ export function createDatabaseSchema(database) {
       )
     );
 
-
-    /* ===========================================
+        /* ===========================================
        PRODUCTS
     =========================================== */
 
@@ -157,7 +156,7 @@ export function createDatabaseSchema(database) {
 
       description TEXT,
 
-      selling_price_cents INTEGER NOT NULL
+      selling_price_cents INTEGER NOT NULL DEFAULT 0
         CHECK (
           selling_price_cents >= 0
         ),
@@ -224,7 +223,6 @@ export function createDatabaseSchema(database) {
         sku
       )
     );
-
 
     /* ===========================================
        INVENTORY BALANCES

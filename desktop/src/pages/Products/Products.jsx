@@ -89,11 +89,37 @@ function Products({
      STATE
   ========================================= */
 
+  const [isSyncingProducts, setIsSyncingProducts] = useState(false);
+
   const [
     products,
     setProducts,
   ] = useState([]);
 
+const handleSyncProducts = async () => {
+  if (isSyncingProducts) return;
+
+  try {
+    setIsSyncingProducts(true);
+
+    const result = await window.api.syncCloudProducts();
+
+    console.log("Product sync result:", result);
+
+    if (result.success) {
+      alert(
+        `Sync complete.\nInserted: ${result.inserted}\nUpdated: ${result.updated}`
+      );
+    } else {
+      alert(result.message || "Product sync failed.");
+    }
+  } catch (error) {
+    console.error("Product sync failed:", error);
+    alert("Product sync failed.");
+  } finally {
+    setIsSyncingProducts(false);
+  }
+};
 
   const [
     searchText,
@@ -1124,6 +1150,13 @@ async function handleDeleteProduct() {
               Add Product
             </button>
 
+            <button
+  type="button"
+  onClick={handleSyncProducts}
+>
+  Sync Products
+</button>
+
           </nav>
 
 
@@ -1196,79 +1229,48 @@ async function handleDeleteProduct() {
 
         <section className="products-toolbar">
 
-          <div className="products-search-wrapper">
+  <div className="products-search-wrapper">
 
-            <span className="products-search-icon">
-              ⌕
-            </span>
+    <span className="products-search-icon">
+      ⌕
+    </span>
 
+    <input
+      type="text"
+      value={searchText}
+      onChange={(event) =>
+        setSearchText(event.target.value)
+      }
+      placeholder="Search by product name, category, SKU, or barcode"
+    />
 
-            <input
-              type="search"
-              placeholder="Search by product name, category, SKU, or barcode"
-              value={
-                searchText
-              }
-              onChange={
-                (
-                  event,
-                ) =>
-                  setSearchText(
-                    event.target.value,
-                  )
-              }
-            />
+  </div>
 
-          </div>
+  <div className="products-toolbar-actions">
 
+    <button
+      type="button"
+      className="sync-products-button"
+      onClick={handleSyncProducts}
+      disabled={isSyncingProducts}
+    >
+      {isSyncingProducts
+        ? "Syncing..."
+        : "Sync Products"}
+    </button>
 
-          <div className="products-toolbar-actions">
+    <button
+      type="button"
+      className="add-product-button"
+      onClick={openAddProductModal}
+    >
+      <span className="add-product-icon">+</span>
+      Add Product
+    </button>
 
-            <div className="products-count">
+  </div>
 
-              <strong>
-                {
-                  filteredProducts.length
-                }
-              </strong>
-
-
-              <span>
-                Product
-                {
-                  filteredProducts.length ===
-                  1
-                    ? ""
-                    : "s"
-                }
-              </span>
-
-            </div>
-
-
-            {embedded && (
-
-              <button
-                type="button"
-                className="add-product-button"
-                onClick={
-                  openAddProductModal
-                }
-              >
-
-                <span className="add-product-icon">
-                  +
-                </span>
-
-                Add Product
-
-              </button>
-
-            )}
-
-          </div>
-
-        </section>
+</section>
 
 
         {/* ===================================
@@ -1276,6 +1278,8 @@ async function handleDeleteProduct() {
         =================================== */}
 
         <section className="products-table-card">
+
+          <p className="product-count">Product count ({filteredProducts.length})</p>
 
           {isLoading && (
 
@@ -1329,10 +1333,9 @@ async function handleDeleteProduct() {
 
                     <tr>
 
-                      <th>
-                        Product
-                      </th>
-
+                     <th>
+  Product 
+</th>
                       <th>
                         Price
                       </th>

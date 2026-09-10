@@ -1922,3 +1922,51 @@ tr:hover {
 
   cursor: not-allowed;
 }
+
+.product-header-label,
+.product-header-count {
+  display: inline-block;
+}
+
+.product-header-count {
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+.embedded-products-table th:first-child {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.products-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.products-search-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.products-search-wrapper input {
+  width: 100%;
+}
+
+.products-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+
+
+.product-count {
+  
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  color:#008000;
+}
