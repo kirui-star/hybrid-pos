@@ -11,11 +11,11 @@ export function seedDatabase(database) {
         VALUES (?, ?, ?, ?)
       `)
       .run(
-        "store-001",
-        "My Mini Supermarket",
-        "Grand Rapids, Michigan",
-        null
-      );
+  "store-001",
+  "Kampi Mart",
+  "Grand Rapids, Michigan",
+  null
+);
 
     database
       .prepare(`

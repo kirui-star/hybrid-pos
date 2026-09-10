@@ -54,7 +54,17 @@ import {
 import {
   registerReportHandlers,
 } from "./ipc/reports.js";
+import { registerCloudHandlers } from "./ipc/cloud.js";
 
+
+import {
+  syncCloudProducts,
+} from "./services/cloudSyncService.js";
+
+let productSyncInterval = null;
+let productSyncInProgress = false;
+
+const PRODUCT_SYNC_INTERVAL_MS = 60 * 1000;
 
 const currentFilePath =
   fileURLToPath(
@@ -152,6 +162,34 @@ function createMainWindow() {
 }
 
 
+async function runBackgroundProductSync() {
+  if (productSyncInProgress) {
+    console.log(
+      "Background product sync skipped: previous sync still running.",
+    );
+
+    return;
+  }
+
+  try {
+    productSyncInProgress = true;
+
+    const result = await syncCloudProducts();
+
+    console.log(
+      "Background product sync completed:",
+      result,
+    );
+  } catch (error) {
+    console.warn(
+      "Background product sync unavailable:",
+      error.message,
+    );
+  } finally {
+    productSyncInProgress = false;
+  }
+}
+
 /* ==========================================
    APP READY
 ========================================== */
@@ -159,6 +197,27 @@ function createMainWindow() {
 app.whenReady().then(() => {
   try {
     initializeDatabase();
+
+    syncCloudProducts()
+      .then((result) => {
+        console.log(
+          "Startup product sync completed:",
+          result,
+        );
+      })
+      .catch((error) => {
+        console.warn(
+          "Startup product sync unavailable:",
+          error.message,
+        );
+      });
+
+
+      productSyncInterval = setInterval(
+  runBackgroundProductSync,
+  PRODUCT_SYNC_INTERVAL_MS,
+);
+   
 
 
     registerProductHandlers(
@@ -210,6 +269,10 @@ app.whenReady().then(() => {
       ipcMain,
     );
 
+  registerCloudHandlers(
+  ipcMain,
+);
+
 
     createMainWindow();
 
@@ -237,6 +300,10 @@ app.whenReady().then(() => {
   );
 });
 
+if (productSyncInterval) {
+  clearInterval(productSyncInterval);
+  productSyncInterval = null;
+}
 
 /* ==========================================
    BEFORE QUIT

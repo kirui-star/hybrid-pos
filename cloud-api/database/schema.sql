@@ -164,87 +164,89 @@ CREATE TABLE IF NOT EXISTS categories (
 -- ============================================================
 -- 5. PRODUCTS
 -- ============================================================
-
 CREATE TABLE IF NOT EXISTS products (
-    id VARCHAR(64) NOT NULL,
+  id VARCHAR(64) PRIMARY KEY,
 
-    store_id VARCHAR(64) NOT NULL,
+  store_id VARCHAR(64) NOT NULL,
 
-    category_id VARCHAR(64),
+  category_id VARCHAR(64) NULL,
 
-    barcode VARCHAR(191),
+  barcode VARCHAR(255) NULL,
 
-    sku VARCHAR(191),
+  sku VARCHAR(255) NULL,
 
-    name VARCHAR(200) NOT NULL,
+  name VARCHAR(255) NOT NULL,
 
-    description TEXT,
+  description TEXT NULL,
 
-    selling_price_cents BIGINT UNSIGNED NOT NULL
-        DEFAULT 0,
+  selling_price_cents BIGINT NOT NULL,
 
-    cost_price_cents BIGINT UNSIGNED NOT NULL
-        DEFAULT 0,
+  cost_price_cents BIGINT NOT NULL DEFAULT 0,
 
-    tax_rate_basis_points INT UNSIGNED NOT NULL
-        DEFAULT 0,
+  tax_rate_basis_points INT NOT NULL DEFAULT 0,
 
-    is_taxable TINYINT(1) NOT NULL
-        DEFAULT 1,
+  is_taxable TINYINT(1) NOT NULL DEFAULT 1,
 
-    track_inventory TINYINT(1) NOT NULL
-        DEFAULT 1,
+  track_inventory TINYINT(1) NOT NULL DEFAULT 1,
 
-    is_active TINYINT(1) NOT NULL
-        DEFAULT 1,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
 
-    created_at DATETIME NOT NULL
-        DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    updated_at DATETIME NOT NULL
-        DEFAULT CURRENT_TIMESTAMP
-        ON UPDATE CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id),
+  sync_status ENUM(
+    'PENDING',
+    'SYNCED',
+    'FAILED'
+  ) NOT NULL DEFAULT 'PENDING',
 
-    UNIQUE KEY uq_products_store_barcode (
-        store_id,
-        barcode
+  CONSTRAINT fk_products_store
+    FOREIGN KEY (store_id)
+    REFERENCES stores(id)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT,
+
+  CONSTRAINT fk_products_category
+    FOREIGN KEY (category_id)
+    REFERENCES categories(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL,
+
+  CONSTRAINT chk_products_selling_price
+    CHECK (selling_price_cents >= 0),
+
+  CONSTRAINT chk_products_cost_price
+    CHECK (cost_price_cents >= 0),
+
+  CONSTRAINT chk_products_tax_rate
+    CHECK (
+      tax_rate_basis_points >= 0
+      AND tax_rate_basis_points <= 10000
     ),
 
-    UNIQUE KEY uq_products_store_sku (
-        store_id,
-        sku
-    ),
+  CONSTRAINT chk_products_is_taxable
+    CHECK (is_taxable IN (0, 1)),
 
-    KEY idx_products_name (
-        name
-    ),
+  CONSTRAINT chk_products_track_inventory
+    CHECK (track_inventory IN (0, 1)),
 
-    KEY idx_products_category_id (
-        category_id
-    ),
+  CONSTRAINT chk_products_is_active
+    CHECK (is_active IN (0, 1)),
 
-    KEY idx_products_store_active (
-        store_id,
-        is_active
-    ),
+  UNIQUE KEY uq_products_store_barcode (
+    store_id,
+    barcode
+  ),
 
-    CONSTRAINT fk_products_store
-        FOREIGN KEY (store_id)
-        REFERENCES stores(id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-
-    CONSTRAINT fk_products_category
-        FOREIGN KEY (category_id)
-        REFERENCES categories(id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL
-
+  UNIQUE KEY uq_products_store_sku (
+    store_id,
+    sku
+  )
 ) ENGINE=InnoDB
-  DEFAULT CHARSET=utf8mb4
-  COLLATE=utf8mb4_unicode_ci;
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
 
 -- ============================================================

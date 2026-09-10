@@ -362,5 +362,12 @@ contextBridge.exposeInMainWorld(
         "transactions:getHistory",
         filters,
       ),
+
+      getCloudProducts: () =>
+  ipcRenderer.invoke("cloud:get-products"),
+      
+      syncCloudProducts: () =>
+  ipcRenderer.invoke("cloud:sync-products"),
+
   },
 );
